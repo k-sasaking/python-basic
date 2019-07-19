@@ -129,20 +129,33 @@ function changeBtn(doDisable){
 
 **プログラム** = 「**命令**」
 
+<br/>
+<br/>
 
  
  
 命令：「右へ１０歩動く」
 
+<br/>
+
+
 <img src="img/scratch.png"/>
 
+<br/>
+<br/>
  
  
 命令：「左へ１０歩動く」
 
+<br/>
+
+
 <img style="transform: scale(-1, 1);" src="img/scratch.png"/>
 
 
+<br/>
+<br/>
+<br/>
 
 
 
@@ -155,6 +168,7 @@ function changeBtn(doDisable){
 
 
 <hr/>
+<br/>
 <br/>
 <br/>
 
@@ -360,12 +374,17 @@ print('Hello world!!')
 <br/>
 
 
-## 終わった人演習：
+<div class="enshu">
+    <p class="enshu-title-next">演習(早く終わった人)：</p>
+    <p class="enshu-q">
 
 ①「Let's enjoy programing!!」と出力してみましょう。
 
 
 ②「I am "HERO".」と出力してみましょう。
+
+    </p>
+</div>
 
 
 <hr/>
@@ -442,12 +461,10 @@ print(c)
 <br/>
 
 
-演習:
-
-以下のプログラムはどうなるでしょう？
-
+次のプログラムを動かして見て出力結果を見てみましょう。
 
 ```python
+
 a = 10
 b = 20
 c = "hello"
@@ -457,7 +474,10 @@ a = b
 print(a)
 print(b)
 print(c)
+
 ```
+
+
 
 <br/>
 <br/>
@@ -475,37 +495,54 @@ print(c)
 <br/>
 
 
-演習：次のプログラムの出力結果が何になるか答えなさい。
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    次のプログラムの出力結果が何になるか答えなさい
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
 
-```python
-a = 10
-b = 20
+    a = 10
+    b = 20
 
-c = a
-a = b
-b = c
+    c = a
+    a = b
+    b = c
 
-print(a)
-```
+    print(a)
 
-<input type="" />
+    </pre>
+
+   </p>
+　 
+   <input type="text" size="10" />
+</div>
 
 
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    次のプログラムの出力結果が何になるか答えなさい
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
 
-```python
-a = 'おはよう'
-b = 'こんにちは'
-c = 'こんばんは'
+    a = 'おはよう'
+    b = 'こんにちは'
+    c = 'こんばんは'
 
-d = a
-a = b
-b = c
-c = d
+    d = a
+    a = b
+    b = c
+    c = d
 
-print(c)
-```
+    print(c)
 
-<input type="" />
+    </pre>
+
+   </p>
+　 
+   <input type="text" size="10" />
+</div>
+
+
 
 
 <hr/>
@@ -1061,16 +1098,24 @@ function picturesClickEvent(id){
 
 var enshu = document.getElementsByClassName('enshu');
 var enshuTitle = document.getElementsByClassName('enshu-title');
+var enshuTitleNext = document.getElementsByClassName('enshu-title-next');
 var enshuQ = document.getElementsByClassName('enshu-q');
 
 for (i = 0; i < enshu.length; i++) {
   enshu[i].style.backgroundColor = "#FFFFFF";
   enshu[i].style.border = "thin solid black"
-  enshuTitle[i].style.fontSize = "50px";
+  enshuTitle[i].style.fontSize = "25px";
+  enshuTitle[i].style.padding = "5px";
   enshuTitle[i].style.backgroundColor = "blue";
-  enshuTitle[i].style.textColor = "white";
-  enshuQ[i].style.fontSize = "30px";
-  enshuQ[i].style.border = "thin solid black"
+  enshuTitle[i].style.color = "white";
+  enshuTitleNext[i].style.fontSize = "25px";
+  enshuTitleNext[i].style.padding = "5px";
+  enshuTitleNext[i].style.backgroundColor = "breen";
+  enshuTitleNext[i].style.color = "white";
+  enshuQ[i].style.fontSize = "12px";
+  enshuQ[i].style.color = "green";
+  enshuQ[i].style.padding = "5px";
 }
+
 
 </script>
