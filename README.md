@@ -365,7 +365,7 @@ print('Hello world!!')
 <div class="enshu">
     <p class="enshu-title">演習：</p>
     <p class="enshu-q">
-        好きな文字を出力してみよう！！
+        lesson1.pyを編集して、好きな文字を出力してみよう！！
     </p>
 </div>
 
@@ -511,6 +511,7 @@ print(c)
 
    </p>
    <div class="enshu-a">
+       <p class="enshu-a-title">回答</p>
        <input type="text" size="10" />
    </div>
 </div>
@@ -519,7 +520,7 @@ print(c)
 <div class="enshu">
     <p class="enshu-title">演習：</p>
     <p class="enshu-q">
-    次のプログラムの出力結果が何になるか答えなさい
+    次のプログラムの出力結果が何になるか答えなさい。
     <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
 
     a = 'おはよう'
@@ -537,6 +538,7 @@ print(c)
 
    </p>
    <div class="enshu-a">
+       <p class="enshu-a-title">回答</p>
        <input type="text" size="10" />
    </div>
 </div>
@@ -635,15 +637,22 @@ print(type(num))
 <br/>
 
 
-演習：次の変数aとbの型を調べてみよう
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    次の変数aとbの型を調べてみよう。（lesson3.pyにコピーして、プログラムを書きましょう。）
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
 
-lesson3.pyにコピーして、プログラムを書きましょう。
+    a = "100"
+    b = 100
+
+    </pre>
+
+   </p>
+</div>
 
 
-```python
-a = "100"
-b = 100
-```
+
 
 <hr/>
 <br/>
@@ -695,20 +704,28 @@ print(a ^ b) #べき乗
 <br/>
 
 
-## 演習：全部の記号をキーボードで押せるかな？
 
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    全部の記号をキーボードで押せるかな？
+   </p>
+   <div class="enshu-a">
+       <p class="enshu-a-title">回答</p>
+        足し算の記号：<input type="text" size="3" />
 
-足し算の記号：<input type="text" size="3" />
+        引き算の記号：<input type="text" size="3" />
 
-引き算の記号：<input type="text" size="3" />
+        かけ算の記号：<input type="text" size="3" />
 
-かけ算の記号：<input type="text" size="3" />
+        割り算の記号：<input type="text" size="3" />
 
-割り算の記号：<input type="text" size="3" />
+        剰余の記号：<input type="text" size="3" />
 
-剰余の記号：<input type="text" size="3" />
+        べき乗の記号：<input type="text" size="3" />
+   </div>
+</div>
 
-べき乗の記号：<input type="text" size="3" />
 
 
 
@@ -730,24 +747,32 @@ print("おはよう" + "ございます。")
 <br/>
 
 
-演習：
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    それぞれどんな結果になるでしょうか？
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
 
-```python
-a = 10
-b = 7
+    a = 10
+    b = 7
 
-c = a + 1
-d = b -1
+    c = a + 1
+    d = b -1
 
-print(c)
-print(d)
-```
+    print(c)
+    print(d)
 
-それぞれどんな結果になるでしょうか？
+    </pre>
 
-print(c):<input type="text" size="3" />
+   </p>
+   <div class="enshu-a">
+       <p class="enshu-a-title">回答</p>
+        print(c):<input type="text" size="3" />
+        print(d):<input type="text" size="3" />
+   </div>
+</div>
 
-print(d):<input type="text" size="3" />
+
 
 <br/>
 <br/>
@@ -1097,11 +1122,12 @@ var enshu = document.getElementsByClassName('enshu');
 var enshuTitle = document.getElementsByClassName('enshu-title');
 var enshuTitleNext = document.getElementsByClassName('enshu-title-next');
 var enshuQ = document.getElementsByClassName('enshu-q');
+var enshuATitle = document.getElementsByClassName('enshu-a-title');
 var enshuA = document.getElementsByClassName('enshu-a');
 
 for (var i = 0; i < enshu.length; i++) {
   enshu[i].style.backgroundColor = "#FFFFFF";
-  enshu[i].style.border = "thin solid black"
+  enshu[i].style.border = "thin solid black";
   enshu[i].style.margin = "5px";
 }
 for (var i = 0; i < enshuTitle.length; i++) {
@@ -1126,6 +1152,12 @@ for (var i = 0; i < enshuQ.length; i++) {
 for (var i = 0; i < enshuA.length; i++) {
   enshuA[i].style.fontSize = "12px";
   enshuA[i].style.padding = "5px";
+  enshuA[i].style.border = "thin solid red";
+}
+for (var i = 0; i < enshuATitle.length; i++) {
+  enshuATitle[i].style.fontSize = "12px";
+  enshuATitle[i].style.padding = "5px";
+  enshuATitle[i].style.color = "red";
 }
 
 
