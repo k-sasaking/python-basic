@@ -712,17 +712,17 @@ print(a ^ b) #べき乗
    </p>
    <div class="enshu-a">
        <p class="enshu-a-title">回答</p>
-        足し算の記号：<input type="text" size="3" />
+        足し算の記号：<input type="text" size="3" /><br/>
 
-        引き算の記号：<input type="text" size="3" />
+        引き算の記号：<input type="text" size="3" /><br/>
 
-        かけ算の記号：<input type="text" size="3" />
+        かけ算の記号：<input type="text" size="3" /><br/>
 
-        割り算の記号：<input type="text" size="3" />
+        割り算の記号：<input type="text" size="3" /><br/>
 
-        剰余の記号：<input type="text" size="3" />
+        剰余の記号：<input type="text" size="3" /><br/>
 
-        べき乗の記号：<input type="text" size="3" />
+        べき乗の記号：<input type="text" size="3" /><br/>
    </div>
 </div>
 
@@ -767,8 +767,8 @@ print("おはよう" + "ございます。")
    </p>
    <div class="enshu-a">
        <p class="enshu-a-title">回答</p>
-        print(c):<input type="text" size="3" />
-        print(d):<input type="text" size="3" />
+        print(c):<input type="text" size="3" /><br/>
+        print(d):<input type="text" size="3" /><br/>
    </div>
 </div>
 
@@ -871,11 +871,15 @@ print(s)
 <br/>
 
 
-# Lesson5 if文
+# Lesson6 if文
+
+lesson6.pyを作りましょう。
 
 
-### if文
+## if文
 ここからは、条件分岐について学んでいきます。
+
+<br/>
 
 
 例えば、テストの点数が、100点の時は、「満点」と表示したい時は？
@@ -889,23 +893,31 @@ if test == 100:
     print('満点')
 ```
 
-
+<br/>
+<br/>
+dfss
 このように、　== は左と右が同じという意味になります。
 
 
-これを比較演算子と呼びます。
+これを**比較演算子**と呼びます。
+
+<br/>
+<br/>
 
 
 その他の比較演算子は以下のようなものがあります。
 
+|||
 
 
 
 
+<br/>
+<br/>
+<br/>
 
 
-
-### else文
+## else文
 続いて、テストの点数が、70点以上は「合格」。70点未満は「不合格」と表示したい時は？
 
 
@@ -920,9 +932,12 @@ else:
 ```
 
 
+<br/>
+<br/>
+<br/>
 
 
-### elif文
+## elif文
 最後に、80点以上は「A」、60点以上は、「B」、それ以外は、「C」と表示したい時は？
 
 
@@ -941,8 +956,6 @@ else:
 
 
 
-
-
 演習：
 
 
@@ -953,11 +966,16 @@ else:
 
 
 
-# Lesson6 for文
-### for文の書き方１
+# Lesson7 for文
+
+lesson7.pyを作りましょう。
+
+## for文の書き方１
 
 
 例えば、"●"を5個表示したい時は？
+
+<br/>
 
 
 ```python
@@ -968,14 +986,20 @@ print('●')
 print('●')
 ```
 
+<br/>
+<br/>
 
 って書くの大変ですよね...。（ちょっとカッコ悪い）
 
+<br/>
+<br/>
 
 そこで、for文の出番です。
 
 
 同じ処理をする場合は、何回その処理をやるのか書くだけで、繰り返し処理をしてくれます。
+
+lesson
 
 
 ```python
@@ -984,6 +1008,8 @@ for i in range(i):
 ```
 
 
+<br/>
+<br/>
 
 
 
@@ -997,7 +1023,7 @@ for i in range(i):
 <br/>
 
 
-# Lesson7 関数
+# Lesson8 関数
 ### 
 
 
@@ -1070,8 +1096,10 @@ a()
 <br/>
 
 
-# Lesson8 ゲームを作ってみよう！
+# Lesson9 ゲームを作ってみよう！
 ### 
+
+
 
 
 
