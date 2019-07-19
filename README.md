@@ -5,6 +5,7 @@
 
 ### ルール
 
+
 １５個の石を順番に取っていきます。取ることのできる石の数は、「１個」か「２個」しか選べません。
 
 最後の一個を取ったら、負けです。**最後の一個を取らないようにする**ゲームです。
@@ -133,7 +134,7 @@ function changeBtn(doDisable){
  
 命令：「右へ１０歩動く」
 
-<img src="img/scrach.png"/>
+<img src="img/scratch.png"/>
 
  
  
@@ -206,6 +207,8 @@ python講座で使用するツールをインストールしましょう！
 - python　（バージョン３のもの）
 - pythonを動かすアプリケーション
 
+<br/>
+<br/>
 
 
 ## python バージョン3
@@ -280,7 +283,7 @@ xxxxx.py
 というファイル名で作ることができます。
 
 
-.pyが付いていれば、全部pythonのプログラムです。
+ファイル名に「.py」が付いていれば、全部pythonのプログラムです。
 
 
 今回は、
@@ -292,7 +295,8 @@ lesson1.py
 
 という名前で作成しましょう。
 
-
+<br/>
+<br/>
 
 
 ## Hello Wolrd!!のプログラムを作ろう
@@ -304,6 +308,8 @@ lesson1.py
 print("Hello world!!")
 ```
 
+<br/>
+<br/>
 
 ### 作ったプログラムを実行しよう！
 
@@ -323,6 +329,8 @@ python lesson1.py
 
 と入力します。
 
+<br/>
+<br/>
 
 
 ## print文の様々な書き方
@@ -337,12 +345,19 @@ print('Hello world!!')
 ```
 
 
+<br/>
+<br/>
+
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+        好きな文字を出力してみよう！！
+    </p>
+</div>
 
 
-## 演習：
-
-好きな文字を出力してみよう！！
-
+<br/>
+<br/>
 
 
 ## 終わった人演習：
@@ -353,14 +368,18 @@ print('Hello world!!')
 ②「I am "HERO".」と出力してみましょう。
 
 
+<hr/>
+<br/>
+<br/>
 
-## Lesson2 変数
+
+# Lesson2 変数
 
 
 lesson2.pyのファイルを作りましょう！
 
 
-### 変数
+## 変数
 
 変数とは、値が変化する数のことです。
 
@@ -372,12 +391,14 @@ lesson2.pyのファイルを作りましょう！
 a = 10
 ```
 
+<br/>
+<br/>
 
-本当に入っているか確認してみよう！！
-
+#### 本当に入っているか確認してみよう！！
 
 
 新しいファイルlesson2.pyにコピーして、以下のプログラムを実行させてみよう。
+
 
 ```python
 a = 10
@@ -385,7 +406,7 @@ a = 10
 print(a)
 ```
 
-### 変数は値が変化する
+### ◼変数の特徴その①：変数は値が変化する
 
 ファイルlesson2.pyにコピーして、以下のプログラムを実行させてみよう。
 
@@ -398,8 +419,11 @@ print(a)
 
 ※上書きされます。
 
+<br/>
+<br/>
 
-### 変数はいくつも作れる！文字も入れることができる!
+
+### ◼変数の特徴その②：変数はいくつも作れる！文字も入れることができる!
 
 ファイルlesson2.pyにコピーして、以下のプログラムを実行させてみよう。
 
@@ -413,6 +437,9 @@ print(a)
 print(b)
 print(c)
 ```
+
+<br/>
+<br/>
 
 
 演習:
@@ -432,18 +459,20 @@ print(b)
 print(c)
 ```
 
-以下のコードは、aにbの値を入れるという意味になります。
+<br/>
+<br/>
 
+**「a = b」は、aにbの値を入れるという意味になります。**
 
-```python
-a = b
-```
-
-
-
+<br/>
+<br/>
 
 
 つまり、「**右のものを左に入れる**」という意味になります。
+
+
+<br/>
+<br/>
 
 
 演習：次のプログラムの出力結果が何になるか答えなさい。
@@ -478,6 +507,10 @@ print(c)
 
 <input type="" />
 
+
+<hr/>
+<br/>
+<br/>
 
 
 # Lesson3 型
@@ -520,10 +553,13 @@ print(type(num))
 <class 'str'>
 ```
 
+<br/>
+<br/>
 
 **<class 'str'>**と表示れたら、「**文字**」であるという意味になります。
 
 
+<br/>
 <br/>
 
 
@@ -545,8 +581,13 @@ print(type(num))
 <class 'int'>
 ```
 
+<br/>
+<br/>
+
 **<class 'int'>**と表示れたら、「**数字**」であるという意味になります。
 
+<br/>
+<br/>
 
 
 ## 覚えること
@@ -555,6 +596,9 @@ print(type(num))
 | str | 文字 |
 | int | 数字 |
 
+
+<br/>
+<br/>
 
 
 演習：次の変数aとbの型を調べてみよう
@@ -567,6 +611,10 @@ a = "100"
 b = 100
 ```
 
+<hr/>
+<br/>
+<br/>
+
 
 #Lesson4 演算
 
@@ -575,6 +623,9 @@ lesson4.pyを作りましょう。
 ## 演算
 
 演算とは、+,-,×,÷をすることです。
+
+<br/>
+<br/>
 
 
 例えば、プログラムで書くと以下のように書くことができます。
@@ -586,8 +637,12 @@ a = 10
 b = 7
 print(a + b)
 ```
+<br/>
+<br/>
 
-その他の計算
+### その他の計算
+
+
 
 ```python
 a = 10
@@ -601,8 +656,12 @@ print(a % b) #剰余（割り算の余り）
 print(a ^ b) #べき乗
 ```
 
+<br/>
+<br/>
+<br/>
 
-## 全部の記号をキーボードで押せるかな？
+
+## 演習：全部の記号をキーボードで押せるかな？
 
 
 足し算の記号：<input type="text" size="3" />
@@ -619,15 +678,22 @@ print(a ^ b) #べき乗
 
 
 
+<br/>
+<br/>
+<br/>
 
 
-文字の足し算もできます。
+### 文字の足し算もできます。
 
 lesson4.pyの一番下の行に追加してみよう。
 
 ```python
 print("おはよう" + "ございます。")
 ```
+
+<br/>
+<br/>
+<br/>
 
 
 演習：
@@ -649,6 +715,9 @@ print(c):<input type="text" size="3" />
 
 print(d):<input type="text" size="3" />
 
+<br/>
+<br/>
+<br/>
 
 
 ```python
@@ -663,6 +732,12 @@ print(a)
 
 <input type="text" size="3" />
 
+
+<br/>
+<br/>
+<br/>
+
+
 ```python
 b = 7
 
@@ -675,6 +750,13 @@ print(a)
 
 <input type="text" size="3" />
 
+
+<br/>
+<br/>
+<br/>
+
+
+
 ```python
 print(2 + 3 * 5)
 ```
@@ -684,11 +766,16 @@ print(2 + 3 * 5)
 <input type="text" size="3" />
 
 
+<hr/>
+<br/>
+<br/>
 
 # Lesson5 入力しよう！
 
 lesson5.pyを作りましょう！
 
+<br/>
+<br/>
 
 ## 入力
 
@@ -701,6 +788,8 @@ printで値を出力しましたが、入力する方法を学びます。
 変数名 = input("メッセージ")
 ```
 
+<br/>
+<br/>
 
 試しに、lesson5.pyに以下のプログラムを書いて、実行してみましょう。
 
@@ -712,15 +801,18 @@ print("入力された値を表示します。")
 print(s)
 ```
 
+<br/>
+<br/>
 
 演習：
 
 
+<hr/>
+<br/>
+<br/>
 
 
-
-
-## Lesson5 if文
+# Lesson5 if文
 
 
 ### if文
@@ -796,8 +888,13 @@ else:
 
 
 
+<hr/>
+<br/>
+<br/>
 
-## Lesson6 for文
+
+
+# Lesson6 for文
 ### for文の書き方１
 
 
@@ -836,10 +933,12 @@ for i in range(i):
 
 
 
+<hr/>
+<br/>
+<br/>
 
 
-
-## Lesson7 関数
+# Lesson7 関数
 ### 
 
 
@@ -907,6 +1006,71 @@ a()
 
 
 
+<hr/>
+<br/>
+<br/>
 
-## Lesson8 ゲームを作ってみよう！
+
+# Lesson8 ゲームを作ってみよう！
 ### 
+
+
+
+
+<script>
+function getCorrect(id){
+    changeText(id,'正解を表示',"#de4e2e");
+}
+function moreQuestion(id){
+    changeText(id,'挑戦!',"#228822");
+}
+function getNone(id){
+    changeText(id,'表示',"#334433");
+}
+function getHint(id){
+    changeText(id,'ヒント',"#334433");
+}
+function getReference(id){
+    changeText(id,'参考','#228822');
+}
+function readDigression(id){
+    changeText(id,'余談','#228822');
+}
+function changeText(id,text,color){
+    let span = document.getElementById('span_'+id);
+    let btn = document.getElementById('btn_'+id);
+    if(btn.value == '非表示'){
+        btn.value = text;
+        span.style.display = 'none';
+    }else{
+        btn.value = '非表示';
+        span.style.display = 'block';
+        span.style.color = color
+    }
+
+}
+
+function picturesClickEvent(id){
+    let nextId = id == 8 ? 1 : (id+1);
+    let prev = document.getElementById('pictures_'+id);
+    let next = document.getElementById('pictures_'+nextId);
+    prev.style.display = 'none';
+    next.style.display = 'block';
+}
+
+
+var enshu = document.getElementsByClassName('enshu');
+var enshuTitle = document.getElementsByClassName('enshu-title');
+var enshuQ = document.getElementsByClassName('enshu-q');
+
+for (i = 0; i < enshu.length; i++) {
+  enshu[i].style.backgroundColor = "#FFFFFF";
+  enshu[i].style.border = "thin solid black"
+  enshuTitle[i].style.fontSize = "50px";
+  enshuTitle[i].style.backgroundColor = "blue";
+  enshuTitle[i].style.textColor = "white";
+  enshuQ[i].style.fontSize = "30px";
+  enshuQ[i].style.border = "thin solid black"
+}
+
+</script>
