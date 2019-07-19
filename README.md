@@ -377,12 +377,11 @@ print('Hello world!!')
 <div class="enshu">
     <p class="enshu-title-next">演習(早く終わった人)：</p>
     <p class="enshu-q">
-
-①「Let's enjoy programing!!」と出力してみましょう。
-
-
-②「I am "HERO".」と出力してみましょう。
-
+        ①「Let's enjoy programing!!」と出力してみましょう。
+    </p>
+    <br/>
+    <p class="enshu-q">
+        ②「I am "HERO".」と出力してみましょう。
     </p>
 </div>
 
@@ -500,7 +499,6 @@ print(c)
     <p class="enshu-q">
     次のプログラムの出力結果が何になるか答えなさい
     <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
-
     a = 10
     b = 20
 
@@ -509,11 +507,9 @@ print(c)
     b = c
 
     print(a)
-
     </pre>
 
    </p>
-　 
    <input type="text" size="10" />
 </div>
 
@@ -1101,17 +1097,25 @@ var enshuTitle = document.getElementsByClassName('enshu-title');
 var enshuTitleNext = document.getElementsByClassName('enshu-title-next');
 var enshuQ = document.getElementsByClassName('enshu-q');
 
-for (i = 0; i < enshu.length; i++) {
+for (var i = 0; i < enshu.length; i++) {
   enshu[i].style.backgroundColor = "#FFFFFF";
   enshu[i].style.border = "thin solid black"
+}
+for (var i = 0; i < enshuTitle.length; i++) {
   enshuTitle[i].style.fontSize = "25px";
   enshuTitle[i].style.padding = "5px";
   enshuTitle[i].style.backgroundColor = "blue";
   enshuTitle[i].style.color = "white";
+    
+}
+for (var i = 0; i < enshuTitleNext.length; i++) {
   enshuTitleNext[i].style.fontSize = "25px";
   enshuTitleNext[i].style.padding = "5px";
-  enshuTitleNext[i].style.backgroundColor = "breen";
+  enshuTitleNext[i].style.backgroundColor = "green";
   enshuTitleNext[i].style.color = "white";
+    
+}
+for (var i = 0; i < enshuQ.length; i++) {
   enshuQ[i].style.fontSize = "12px";
   enshuQ[i].style.color = "green";
   enshuQ[i].style.padding = "5px";
