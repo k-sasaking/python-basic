@@ -1151,6 +1151,7 @@ for (var i = 0; i < enshuQ.length; i++) {
 }
 for (var i = 0; i < enshuA.length; i++) {
   enshuA[i].style.fontSize = "12px";
+  enshuA[i].style.margin = "5px";
   enshuA[i].style.padding = "5px";
   enshuA[i].style.border = "thin solid red";
 }
@@ -1159,6 +1160,5 @@ for (var i = 0; i < enshuATitle.length; i++) {
   enshuATitle[i].style.padding = "5px";
   enshuATitle[i].style.color = "red";
 }
-
 
 </script>
