@@ -510,7 +510,9 @@ print(c)
     </pre>
 
    </p>
-   <input type="text" size="10" />
+   <div class="enshu-a">
+       <input type="text" size="10" />
+   </div>
 </div>
 
 
@@ -534,11 +536,10 @@ print(c)
     </pre>
 
    </p>
-　 
-   <input type="text" size="10" />
+   <div class="enshu-a">
+       <input type="text" size="10" />
+   </div>
 </div>
-
-
 
 
 <hr/>
@@ -1096,10 +1097,12 @@ var enshu = document.getElementsByClassName('enshu');
 var enshuTitle = document.getElementsByClassName('enshu-title');
 var enshuTitleNext = document.getElementsByClassName('enshu-title-next');
 var enshuQ = document.getElementsByClassName('enshu-q');
+var enshuA = document.getElementsByClassName('enshu-a');
 
 for (var i = 0; i < enshu.length; i++) {
   enshu[i].style.backgroundColor = "#FFFFFF";
   enshu[i].style.border = "thin solid black"
+  enshu[i].style.margin = "5px";
 }
 for (var i = 0; i < enshuTitle.length; i++) {
   enshuTitle[i].style.fontSize = "25px";
@@ -1119,6 +1122,10 @@ for (var i = 0; i < enshuQ.length; i++) {
   enshuQ[i].style.fontSize = "12px";
   enshuQ[i].style.color = "green";
   enshuQ[i].style.padding = "5px";
+}
+for (var i = 0; i < enshuA.length; i++) {
+  enshuA[i].style.fontSize = "12px";
+  enshuA[i].style.padding = "5px";
 }
 
 
