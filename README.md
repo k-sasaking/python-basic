@@ -5,14 +5,9 @@
 
 ### ルール
 
-１５個の石を順番に取っていきます。
+１５個の石を順番に取っていきます。取ることのできる石の数は、「１個」か「２個」しか選べません。
 
-取る石の数は、１個か２個しか選べません。
-
-最後の一個を取ったら、負けです。
-
-
-最後の一個を取らないようにするゲームです。
+最後の一個を取ったら、負けです。**最後の一個を取らないようにする**ゲームです。
 
 
 <input id="startBtn" type="button" value="スタート"  style="display:block;" onClick="gameStart()"/>
@@ -72,12 +67,16 @@ function setStone(num, isUser){
 function getOne(){
     getUser(1);
     changeBtn(true);
+    if(stone <= 0)
+        return;
     setTimeout("getCp(2)", 1000);
 }
 
 function getTwo(){
     getUser(2);
     changeBtn(true);
+    if(stone <= 0)
+        return;
     setTimeout("getCp(1)", 1000);
 }
 
@@ -115,6 +114,11 @@ function changeBtn(doDisable){
 </script>
 
 
+<hr/>
+<br/>
+<br/>
+
+
 # Lesson0 はじめに
 ## プログラミングとは？
 
@@ -129,13 +133,13 @@ function changeBtn(doDisable){
  
 命令：「右へ１０歩動く」
 
-<img ssrc="img/scrach.jpg"/>
+<img src="img/scrach.png"/>
 
  
  
 命令：「左へ１０歩動く」
 
-<img style="transform: scale(-1, 1);" src="img/scratch.jpg"/>
+<img style="transform: scale(-1, 1);" src="img/scratch.png"/>
 
 
 
@@ -143,11 +147,15 @@ function changeBtn(doDisable){
 
 プログラミングとは...
 
-この命令を自分で作ることです!!
+**コンピュータへ命令を作ること**です!!
+
 
 <img src="img/program.jpg"/>
 
 
+<hr/>
+<br/>
+<br/>
 
 
 ## pythonとは？
@@ -156,7 +164,7 @@ function changeBtn(doDisable){
 
 
 
-pythonは、プログラムを作ることができるプログラミング言語の一種です。
+pythonは、プログラムを作ることができるプログラミング言語(コンピュータが理解できる言語)の一種です。
 
 
 
@@ -175,11 +183,16 @@ pythonは、プログラムを作ることができるプログラミング言�
 
 - 人気急上昇
 
-<img src="lang-programing.png" />
+<img src="img/lang-programing.png" />
 
 - 豊富なライブラリ
 
-<img src="ai.jpg" />
+<img src="img/ai.jpg" />
+
+
+<hr/>
+<br/>
+<br/>
 
 
 
@@ -190,12 +203,12 @@ python講座で使用するツールをインストールしましょう！
 使うものは、以下のものです。
 
 
-- python 3.X.X
+- python　（バージョン３のもの）
 - pythonを動かすアプリケーション
 
 
 
-## python 3.X.Xのインストール
+## python バージョン3
 
 pythonは多くのOSでは、すでにインストールされている場合が多いですが、多くの場合は、python 2.X.Xのバージョンであることが多いです。
 
@@ -205,10 +218,11 @@ python2.X.Xのバージョンとpython3.X.Xのバージョンは、異なる部�
 
 
 
-https://www.python.org/downloads/
+[https¥://www.python.org/downloads/](https://www.python.org/downloads/)
 
 
-
+<br/>
+<br/>
 
 
 ## pythonを動かすアプリケーション
@@ -226,7 +240,9 @@ https://www.python.org/downloads/
 PyCharmをインストールする方は、こちらからどうぞ
 
 
-https://www.jetbrains.com/pycharm/
+[https¥://www.jetbrains.com/pycharm/](https://www.jetbrains.com/pycharm/
+)
+
 
 
 
@@ -234,6 +250,12 @@ https://www.jetbrains.com/pycharm/
 
 
 ※テキストエディタによっては、コマンドラインの機能がないものもありますので、Terminal(Mac),コマンドプロンプト(windows)が必要な場合もございます。
+
+
+<hr/>
+<br/>
+<br/>
+<br/>
 
 
 # Lesson1 出力しよう！
