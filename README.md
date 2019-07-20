@@ -108,8 +108,8 @@ function getCp(cpNum){
 function changeBtn(doDisable){
     var oneBtn = document.getElementById("oneBtn");
     var twoBtn = document.getElementById("twoBtn");
-    oneBtn.disabled = doDisable;
-    twoBtn.disabled = doDisable;
+    oneBtn.disabled = false;
+    twoBtn.disabled = false;
 }
 
 </script>
