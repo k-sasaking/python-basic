@@ -1134,6 +1134,48 @@ for i in range(10):
 <br/>
 <br/>
 
+## while文
+
+```python
+while 繰り返す条件:
+
+
+```
+
+<br/>
+<br/>
+
+
+lesson7.pyに追記しましょう。
+
+```python
+num = 10
+
+while num > 0:
+    num = num -1
+    print(num)
+```
+
+<br/>
+<br/>
+
+
+lesson7.pyに追記しましょう。
+
+途中で処理を止めたいときは、if文とbreakを使おう。
+
+
+```python
+num = 10
+
+while num > 0:
+    num = num -1
+    print(num)
+    
+    if num == 3:
+        break
+```
+
 
 # Lesson8 関数
 lesson8.pyを作成しましょう。
@@ -1316,6 +1358,15 @@ lesson9.pyを徐々に変えています。
 player = ここに処理を追加
 ```
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 
 ## Step2: 石を１５個並べましょう。
 
@@ -1328,31 +1379,220 @@ print('あああ', end ='')
 
 ```python
 player = input('ユーザー名を入力してください。：')
+stone = 15
 
 ここに処理を追加
 ```
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 
 ## Step3: ユーザーが1個、２個と石を取る処理を加えましょう。
 
+①「石を何個取りますか？（最大２個）：」というメッセージを出して、入力を促します。
+入力された値を変数getStoneに入れましょう。
+
+➁入力された数字分stoneから入力された数字を引いた数を変数stoneに入れます。
+
+③stoneの数分だけ石を表示しましょう。
+
+### 1ポイント
+int(input('メッセージ：'))
 
 
 ```python
 player= input('ユーザー名を入力してください。：')
+stone = 15
 
-for i 
+for i in range(15):
+    print('〇', end='') 
+
+ここに処理①を追加
+
+ここに処理➁を追加
+
+ここに処理③を追加
 ```
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 
 
 ## Step4: 関数にして便利にしましょう。
 
+石を表示するプログラムを関数にしましょう。
+関数名がprintStone
+引数をnumにして、表示するプログラムを作りましょう。
+
+### 1ポイント
+int(input('メッセージ：'))
 
 
-## Step5: コンピュータの処理を加えてみましょう。
+```python
+player= input('ユーザー名を入力してください。：')
+stone = 15
+
+for i in range(15):
+    print('〇', end='') 
+
+getStone = int(input('石を何個取りますか？（最大２個）'))
+
+stone = stone - getStone
+
+for i in range(stone):
+    print('〇', end='') 
+```
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 
 
+## Step5: stoneが0個になるまで、入力できるようにしましょう。
+
+stoneが0より大きい場合は、繰り返す処理を追加。
+
+
+```python
+player= input('ユーザー名を入力してください。：')
+stone = 15
+
+printStone(stone)
+
+def printStone(num):
+    for i in range(num):
+        print('〇', end='') 
+
+ここに処理を追加   
+    getStone = int(input('石を何個取りますか？（最大２個）'))
+    stone = stone - getStone
+    printStone(stone)
+```
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+## Step6: コンピュータが石を取る処理を追加します。
+①stoneから2個引く処理を追加しましょう。
+➁「コンピュータが２個取りました」という表示をしましょう。
+③石を表示しましょう・
+
+```python
+player= input('ユーザー名を入力してください。：')
+stone = 15
+
+printStone(stone)
+
+def printStone(num):
+    for i in range(num):
+        print('〇', end='') 
+
+
+while stone > 0:
+    getStone = int(input('石を何個取りますか？（最大２個）'))
+    stone = stone - getStone
+    printStone(stone)
+    
+    ここに処理を追加①
+    ここに処理を追加➁
+    ここに処理を追加③
+```
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+## Step7: stoneが0になった時にbreakしましょう。
+
+```python
+player= input('ユーザー名を入力してください。：')
+stone = 15
+
+printStone(stone)
+
+def printStone(num):
+    for i in range(num):
+        print('〇', end='') 
+
+
+while stone > 0:
+    getStone = int(input('石を何個取りますか？（最大２個）'))
+    stone = stone - getStone
+    printStone(stone)
+    ここに処理を追加
+
+    stone = stone -2
+    print('コンピュータが２個取りました。')
+    printStone(stone)
+    ここに処理を追加
+```
+
+## Step8: 勝ち負けを表示しましょう。
+
+```python
+player= input('ユーザー名を入力してください。：')
+stone = 15
+
+printStone(stone)
+
+def printStone(num):
+    for i in range(num):
+        print('〇', end='') 
+
+while stone > 0:
+    getStone = int(input('石を何個取りますか？（最大２個）'))
+    stone = stone - getStone
+    printStone(stone)
+    if stone <= 0:
+        ここに処理を追加
+        break
+
+    stone = stone -2
+    print('コンピュータが２個取りました。')
+    printStone(stone)
+    if stone <= 0:
+        ここに処理を追加
+        break
+```
 
 
 <script>
@@ -1364,6 +1604,7 @@ function moreQuestion(id){
 }
 function getNone(id){
     changeText(id,'表示',"#334433");
+
 }
 function getHint(id){
     changeText(id,'ヒント',"#334433");
