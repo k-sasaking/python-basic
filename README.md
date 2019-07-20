@@ -1482,15 +1482,17 @@ stoneが0より大きい場合は、繰り返す処理を追加。
 
 
 ```python
+def printStone(num):
+    for i in range(num):
+        print('〇', end='') 
+    print('')
+
+
 player= input('ユーザー名を入力してください。：')
 stone = 15
 
 printStone(stone)
 
-def printStone(num):
-    for i in range(num):
-        print('〇', end='') 
-    print('')
 
 
 ここに処理を追加   
