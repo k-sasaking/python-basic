@@ -1,0 +1,2784 @@
+
+# オブジェクト指向って何！？ 
+
+## ～Javaで学ぶオブジェクト指向プログラミング～ 【基礎編】
+
+
+<img src="img/a0001_017879.jpg"/>
+
+
+### オブジェクト指向は難しい？
+
+**「オブジェクト指向」≠「難しい」**
+
+**「オブジェクト指向」＝「単純に、簡単に、シンプルに」**
+
+
+### オブジェクト指向が苦手になりやすい理由
+
+
+ - 専門用語が多すぎる！！
+
+(クラス、インスタンス、コンストラクタ、継承、ポリモーフィズム、抽象クラス、インターフェース....)
+
+-  一般的なカリキュラム上、Javaの基礎を学んだ後に学ぶので、そもそも考え方や頭の使い方が一気に変わるから...。
+
+-  書き方は教えるけど、なぜそう書くかまでは教えてもらえない。
+
+-  そもそも研修レベルの規模ではありがたみを感じにくい...。
+
+## オブジェクト指向ってなに？
+そもそもプログラムを作るときの大きな考え方が３つあります。
+
+**手続き型プログラミング**
+
+上から順番に文章のようにプログラムを書く考え方
+
+**関数型プログラミング**
+
+関数（InputとOutputをもつ処理のかたまり）をつなげて組み立てるプログラミングの考え方
+
+**オブジェクト指向プログラミング**
+
+
+下記のWikipediaを見てもらえれば、すべてわかりますので、見てみましょう。
+
+
+<a href="javascript:alert('冗談です。');">https\://ja.wikipedia.org/wiki/オブジェクト指向プログラミング</a>
+
+
+
+　
+　
+　
+
+## そもそもオブジェクトってなに？
+
+**「オブジェクト」＝「モノ」**
+
+
+(例)コップ、ペットボトル、クツ、ペン、パソコン、スマホ、私、...全てオブジェクトである。
+
+
+<img id="pictures_1" src="img/pictures/01.JPG" style="display:block;" onclick="picturesClickEvent(1)" />
+<img id="pictures_2" src="img/pictures/02.JPG" style="display:none;" onclick="picturesClickEvent(2)" />
+<img id="pictures_3" src="img/pictures/03.JPG" style="display:none;" onclick="picturesClickEvent(3)" />
+<img id="pictures_4" src="img/pictures/04.JPG" style="display:none;" onclick="picturesClickEvent(4)" />
+<img id="pictures_5" src="img/pictures/05.JPG" style="display:none;" onclick="picturesClickEvent(5)" />
+<img id="pictures_6" src="img/pictures/06.JPG" style="display:none;" onclick="picturesClickEvent(6)" />
+<img id="pictures_7" src="img/pictures/07.JPG" style="display:none;" onclick="picturesClickEvent(7)" />
+<img id="pictures_8" src="img/pictures/08.JPG" style="display:none;" onclick="picturesClickEvent(8)" />
+
+
+　
+
+
+つまり、オブジェクト指向とは、**「モノ」をプログラムで表現して扱いましょう!**というものである。（ざっくり言えば...）
+
+
+
+## オブジェクト指向を体験してみよう！
+
+オブジェクト指向のスタートラインは"**モノ**"の**概念**を知ることから始まります。
+
+**モノの概念を捉える**頭の使い方をして、オブジェクトを認識する練習をしましょう。
+ 
+ 
+### ワーク1 : モノを概念としてとらえる練習
+■ コップについて考えよう。
+<img src="img/cup.jpg">
+
+Q1. コップの自己紹介を作ってみよう。
+
+- **重さ**は〇〇です。
+- **素材**は〇〇です。
+- **色**は〇〇です。
+- **水の入る量**は〇〇です。
+- **今水が入ってる量**は〇〇です。
+
+
+※「重さ」「素材」「色」..という項目を挙げることが大事です。
+
+
+Q2. コップを使ってできることは？
+- **水を入れる**
+- **水を捨てる**
+
+
+※主体はあくまでコップであることに注意しましょう。
+　
+### それでは、自分の携帯電話についてそれぞれ考えてみよう。【90秒で何個あげられるかチャレンジ】
+<img src="img/smapho.png">
+
+Q1. 携帯電話に自己紹介をさせてみよう！
+
+<textarea rows="8" cols="50" ></textarea>
+
+Q2. 携帯電話を使ってできることは？
+
+<textarea rows="8" cols="50" ></textarea>
+
+
+
+<input id="btn_1" type="button" onclick="getCorrect(1)" value="正解を表示" />
+
+
+<div id="span_1" style="padding:5px;display:none;">
+
+Q1. 携帯電話に自己紹介をさせてみよう！<br/>
+（例）<br/>
+機種、メーカー、OS、電話番号、データ容量、契約している通信会社、メールアドレス、アプリ、電池の残量....<br/>
+<br/>
+Q2. 携帯電話を使ってできることは？<br/>
+（例）<br/>
+電話をする、着信拒否する、メールを送る、メールを受信する、アドレス帳に登録する、アプリを開く、wifiにつなげる....
+
+</div>
+
+
+
+## フィールドとメソッド
+
+自己紹介の項目で挙げた名詞が**フィールド**
+
+できることを挙げた動詞が**メソッド**
+ 
+
+つまり、
+
+**フィールド**は、**モノのステータスや状態を表す**もの。
+
+**メソッド**は、そのモノが行う**機能**のこと。
+
+　
+プログラムで表すと....
+
+```java
+public class Cup{
+
+    /*フィールド*/
+    int height; //コップの高さ
+    String madeBy; //コップの素材
+    String color; //コップの色
+    int max_capacity ; //水の入る量
+    int now_waterState; //今の水の量
+    
+    /*メソッド*/
+    //水を入れる
+    void input(){
+        System.out.println("水を入れました");       
+    }
+    //水を捨てる
+    void output(){
+       System.out.println("水を捨てました");    
+    }
+}
+```
+
+
+
+### ワーク2：ゲームの主人公を作ろう！
+
+<img src="img/hero.jpg"/>
+
+
+ゲームの主人公の考えられるフィールドとメソッド....
+
+〇フィールド  
+- 名前
+- HP
+- MP
+- レベル
+- 攻撃力
+- 守備力
+- 職業
+- 装備（剣）
+- 装備（盾）
+- 装備（鎧）
+- 持ってる道具
+
+〇メソッド
+- 話す
+- 攻撃する
+- 逃げる
+- 道具を使う
+- 移動する
+- ツボを投げる
+
+
+　
+実際にプログラムに表現してみましょう。
+
+全部書くと大変なので、今回は、以下の設定に絞って作りましょう。
+
+
+＜クラス＞
+
+|項目  |  入力値  |
+| :--- | :--- |
+|  名前（クラス名）  |  Character |
+
+※プロジェクト、パッケージは、任意のもので大丈夫です。
+　
+＜フィールド＞
+
+| 型 | フィールド名 | フィールドの説明 |
+| :---: | :---: | :-- |
+| String | name | キャラクターの名前 |
+| int | hp | 現在のHPの状態 |
+| int | attackPoint | 攻撃力 |
+
+　
+＜メソッド＞
+
+| 戻り値の型 | 引数 | メソッド名 | メソッドの処理 |
+| :---: | :---: | :---: |:-- |
+| なし(void) | なし | attack | "攻撃する"とコンソールに表示する。 |
+|  なし(void)  | なし | runAway | "逃げる"とコンソールに表示する。 |
+
+　
+
+
+<input id="btn_2" type="button" onclick="getCorrect(2)" value="正解を表示" />
+
+
+<div id="span_2" style="padding:5px;display:none;">
+
+正解<br/>
+
+<pre style="background-color: #364549;color:#ffffff;">
+public class Character {
+
+    /*フィールド*/
+    String name; //キャラクターの名前
+    int hp; //現在のHPの状態
+    int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    void runAway(){
+        System.out.println("逃げる");
+    }  
+}
+
+</pre>
+</div>
+
+　
+ちなみに...
+
+メンバとフィールドがごちゃごちゃになっているあなたへ
+
+　
+<input id="btn_y1" type="button" onclick="readDigression('y1')" value="余談" />
+
+
+<div id="span_y1" style="padding:5px;display:none;">
+<br/>
+「フィールド」は、上記のようなクラスに定義されている変数や定数を指します。<br/>
+「メンバ」は、クラスを構成する内部要素(「メソッド」や「フィールド」などを含めた)の総称です。<br/>
+<br/>
+ちなみに、メンバ変数と呼ばれたらフィールドのことを指します。<br/>
+<br/>
+他の参考書等で悩まれたら、思い出してみてください。
+</div>
+
+
+
+## クラスとインスタンス
+これで、ゲームのキャラクターの必要最低限の型が出来上がりました。
+この型のことを**クラス**といいます。
+
+でも、これでは、まだキャラクターの設定をしただけで、実際にキャラクターを作っていません。
+
+キャラクターを実際に作る作業を**インスタンス化**と呼びます。
+
+キャラクターを実際に作る作業は以下のようにやります。
+
+```java
+Character hero = new Character();
+```
+
+これで、heroというキャラクターが出来上がりました。
+このheroのことを**インスタンス**と呼びます。
+
+
+実際にプログラムで書いて動かしてみましょう。
+このキャラクターを作るために実行するメインクラスを用意します。
+
+＜クラス＞
+
+|項目  |  入力値  |
+| :--- | :---: |
+|  名前（クラス名）  |  Main|
+|public static void main(String[] args)(V)| ☑ |
+
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character();
+    
+    }  
+}
+```
+
+これで、heroを作りました。
+しかし、今の状態では、何も設定のないキャラクターになっています。
+
+名前のない、hpもない、攻撃力もわからない.....そんな記憶喪失なヒーローです。
+
+
+〇キャラクターに設定を加える
+
+キャラクターに「名前」と「hp」と「攻撃力」をそれぞれ設定しましょう。
+
+以下のプログラムを加えることで、設定することができます。(※)
+
+```java
+hero.name = "ヒーロー";
+hero.hp = 100;
+hero.attackPoint = 10;
+```
+
+フィールドは、以下のように呼び出すことができます。
+
+```java
+インスタンス.フィールド
+```
+
+〇キャラクターを動かす
+
+また、メソッドを呼び出すときは、以下のようにやります。
+
+```java
+hero.attack(); //攻撃する。
+hero.runAway(); //逃げる。
+```
+
+メソッドは、以下のように呼びだすことができます。
+
+```java
+インスタンス.メソッド();
+```
+
+### ワーク3：ヒーローを作って実行しよう！
+
+それでは、これらをプログラムにしてみましょう。
+
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character();
+
+        //キャラクターの設定
+        hero.name = "ヒーロー";
+        hero.hp = 100;
+        hero.attackPoint = 100;
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+    }  
+}
+```
+
+このプログラムを実行してみましょう！
+
+### お時間ある人用ワーク
+
+<input id="btn_t1" type="button" onclick="moreQuestion('t1')" value="挑戦!" />
+<div id="span_t1" style="padding:5px;display:none;">
+<br/>
+出来た人は、ヒーローだけでなく、他のキャラクターも作ってみよう。<br/>
+Mainクラスにプログラムを加えて、作ってみましょう。<br/>
+
+<br/>
+Q1. 以下の設定のキャラクターを作ってみよう。<br/>
+<br/>
+名前：ヒロイン<br/>
+現在のHP：70<br/>
+攻撃力：5<br/>
+<br/>
+Q2. 好きなキャラクターを作ってみよう！<br/>
+<br/>
+名前：???<br/>
+現在のHP：??<br/>
+攻撃力：??<br/>
+<br/>
+</div>
+
+正解は...
+
+<input id="btn_ta1" type="button" onclick="getCorrect('ta1')" value="正解を表示" />
+
+
+<div id="span_ta1" style="padding:5px;display:none;">
+正解<br/>
+★が追加されたコードです。
+同じ要領で、好きなキャラクターを作れます。
+<pre style="background-color: #364549;color:#ffffff;">
+public class Main {
+
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character();
+        Character heroine = new Character();//★
+
+        //キャラクターの設定
+        hero.name = "ヒーロー";
+        hero.hp = 100;
+        hero.attackPoint = 10;
+
+        //キャラクターの設定
+        heroine.name = "ヒロイン";//★
+        heroine.hp = 70;//★
+        heroine.attackPoint = 5;//★
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       heroine.attack(); //攻撃する。//★
+       heroine.runAway(); //逃げる。//★
+
+    }  
+}
+</pre>
+</div>
+
+このように、Characterクラスから、設定を変えるだけで、たくさんのキャラクターを作ることができます。
+
+新しくクラスを定義して、わざわざインスタンスを作成するメリットは、キャラクターをたくさん増やすことができる便利さがあります！
+
+クラスはあくまで、**モノの概念を定義する**
+
+インスタンス化は、クラスから**実体を作る**
+
+インスタンスは、作られた**実体そのもの**
+
+ちなみに、**hero**や***heroine**のように作られたインスタンスは、変数のように扱えることから、**インスタンス変数**とも呼ばれます。
+
+ 
+
+## コンストラクタ
+
+先ほどのプログラムに、主人公が自分の名前を名乗れるように、Characterクラスに下記のcallNameメソッドを追加します。
+
+```java
+void callName(){
+    System.out.println("私の名前は、"+this.name+"だ！");
+}  
+```
+
+実際にプログラムに追加してみましょう。
+
+＜Characterクラス＞
+
+```java
+public class Character {
+
+    /*フィールド*/
+    String name; //キャラクターの名前
+    int hp; //現在のHPの状態
+    int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    void runAway(){
+        System.out.println("逃げる");
+    }  
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }  
+}
+```
+
+
+＜Mainrクラス＞
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character();
+
+        //キャラクターの設定
+        hero.name = "ヒーロー";
+        hero.hp = 100;
+        hero.attackPoint = 10;
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       hero.callName();//名前を名乗る
+    }  
+}
+```
+
+このプログラムを動かしてみると、自分の名前を名乗ります。
+
+
+このように、メソッド内で、自身のクラスのフィールドを扱いたいときは、
+
+```java
+this.フィールド
+```
+
+と表現します。
+
+**this**は、自分自身のクラスのインスタンスを指しています。
+**this.name**は、**自身自身に定義されているフィールドnameの値**という意味です。
+
+
+それでは、Mainクラスを下記のように、変更を加えました。
+下のプログラムをコピーして、もう一度Mainクラスを実行してみてください。
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character();
+
+        //キャラクターの設定
+        hero.hp = 100;
+        hero.attackPoint = 10;
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       hero.callName();//名前を名乗る
+    }  
+}
+```
+
+なぜ、エラーになったでしょうか？
+
+<input id="btn_3-1" type="button" onclick="getCorrect('3-1')" value="正解を表示" />
+
+<div id="span_3-1" style=";padding:5px;display:none;">
+正解<br/>
+<pre style="background-color: #364549;color:#ffffff;">
+hero.name = "ヒーロー";
+</pre>
+実は、上のコードが抜けていて、名前を設定し忘れていたので、名前を名乗ることができなかったので、エラーになっていしまいます。
+</div>
+
+
+このようなことが起こらないように、絶対に**初期設定**を忘れないようにするために、登場するのが**コンストラクタ**です。
+
+**コンストラクタ**は、**インスタンスが生成されたとき**に、呼び出される特殊なメソッドです。
+
+インスタンスが生成されたタイミングで、値を入れることができるので、上記のようなことが起こらないように防ぐことができます。
+
+
+名前を初期設定するコンストラクタは、以下のコードをCharacterクラスに書くことで作ることができます。
+
+```java
+Character(String xxx){
+    this.name = xxx;
+}
+```
+
+コンストラクタの引数xxxを自身のフィールドnameに値を入れていることがわかります。
+
+
+<input id="btn_y2" type="button" onclick="readDigression('y2')" value="余談" />
+<div id="span_y2" style="padding:5px;display:none;">
+
+上記のプログラムでは、引数をxxxとしていますが、一般的なテキストでは、引数をnameにしています。<br/>
+
+<pre style="background-color: #364549;color:#ffffff;">
+
+Character(String name){
+    this.name = name;
+}
+</pre>
+
+
+これは、「変数名は、わかりやすいものにする」をいう規則から、なるもので、実際はどんな名前でもよいです。<br/>
+プログラマーの初心者で、「this.name=name」をみて「なんでnameにnameを入れているのか？」と一見思わせてしまうため、xxxで表現しています。<br/>
+実際に、業務などで扱うときは、引数をnameにすることが望ましいです。<br/>
+</div>
+
+実際にプログラムを変えてみましょう。
+
+
+＜Characterクラス＞
+
+```java
+public class Character {
+
+    /*コンストラクタ*/
+    Character(String xxx){
+        this.name = xxx;
+    }
+
+    /*フィールド*/
+    String name; //キャラクターの名前
+    int hp; //現在のHPの状態
+    int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    void runAway(){
+        System.out.println("逃げる");
+    }
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }    
+}
+```
+
+すると...Mainクラスにエラーが出てきます。
+これは、インスタンスを作る(heroを作る)時に、「名前が設定されていないじゃん」と怒られているからです。
+
+これは、コンストラクタを定義したおかげで、インスタンスを生成したタイミングで、値を入れる制約を設けたゆえに、エラーが検出されています。
+
+それでは、実際に名前を設定しましょう。
+Mainクラスを以下のように変えてます。
+
+＜Mainクラス＞
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character("ヒーロー");
+
+        //キャラクターの設定
+        hero.hp = 100;
+        hero.attackPoint = 10;
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       hero.callName();//名前を名乗る
+    }  
+}
+```
+
+このプログラムを実際に動かしてみましょう。
+これで、名前を名乗ることができたかと思います。
+
+
+### ワーク4 :他の値も初期設定できるようにしましょう。
+他の「hp」と「attackPoint」もコンストラクタで定義をするようにしましょう。
+
+下のMainクラスから、「hp」と「attackPoint」を定義しているプログラムを削除しました。
+
+下のMainクラスの一部とCharacterクラスを編集し、コンストラクタで「hp」と「attadckPoint」を初期設定してみましょう。
+
+＜Mainクラス＞
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character("ヒーロー");//ここを変更しましょう。
+ 
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       hero.callName();//名前を名乗る
+    }  
+}
+```
+
+
+<input id="btn_4" type="button" onclick="getCorrect(4)" value="正解を表示" />
+
+<div id="span_4" style=";padding:5px;display:none;">
+正解＜Characterクラス＞
+<pre style="background-color: #364549;color:#ffffff;">
+public class Character {
+
+    /*コンストラクタ*/
+    Character(String xxx, int hp, int ap){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = ap;
+    }
+
+    /*フィールド*/
+    String name; //キャラクターの名前
+    int hp; //現在のHPの状態
+    int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    void runAway(){
+        System.out.println("逃げる");
+    }
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }    
+}
+</pre>
+
+正解＜Mainクラス＞
+<pre style="background-color: #364549;color:#ffffff;">
+
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character("ヒーロー", 100,  10);
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       hero.callName();//名前を名乗る
+    }  
+}
+```
+</pre>
+</div>
+
+プログラムが少しコンパクトになりました。
+このように、コンストラクタを定義することで、インスタンスの生成時に値を入れることを義務付けることができます。
+
+コンストラクタについての余談
+
+<input id="btn_y3" type="button" onclick="readDigression('y3')" value="余談" />
+<div id="span_y3" style="padding:5px;display:none;">
+
+コンストラクタが何者かというと、実はメソッドの仲間です。
+
+コンストラクタが定義されていない場合でも、デフォルトで、下記のコンストラクタが実装されています。
+<pre style="background-color: #364549;color:#ffffff;">
+
+Character(){
+}
+</pre>
+また、コンストラクタもメソッドと同様に、引数の型や個数を変えることで、オーバーライドの効果を持たせることができます。
+<pre style="background-color: #364549;color:#ffffff;">
+
+Character(String xxx){
+    /*処理*/
+}
+Character(int hp){
+    /*処理*/
+}
+Character(String xxx,int hp){
+    /*処理*/
+}
+Character(String xxx,int hp,int ap){
+    /*処理*/
+}
+</pre>
+
+このように、コンストラクタを定義すれば、さまざまなパタンの初期値を呼び出すことができます。
+
+また、あまりケースとして多くはないですが、クラスのメソッド内で、コンストラクタを呼ぶときは、以下のように呼び出します。
+
+<pre style="background-color: #364549;color:#ffffff;">
+this();//引数ナシ
+this(name,hp);//引数アリ
+</pre>
+
+</div>
+## カプセル化
+コンストラクタがちゃんと定義されているので、初期設定もちゃんと行えるようにできたので、安心...
+
+と言いたいところですが、実は、今の状態のままでは、まだまだ危険な状態です。
+
+それは、Mainプログラムから勝手に、せっかく初期設定をしたのに値を変えることができてしまうからです。
+
+　
+試しに、いたずらで、「ヒーロー」の名前を「スライム」に変えてしまいましょう。
+
+以下のプログラムをコピーして実行してみましょう。
+
+
+＜Mainクラス＞
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character("ヒーロー", 100,  10);
+
+        //いたずら
+        hero.name = "スライム";
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       hero.callName();//名前を名乗る
+    }  
+}
+```
+
+
+これを実行すると、「私の名前は、スライムだ！」となってしまいました。
+
+このように、せっかく初期設定をしたものを変えられるのはすごく嫌ですよね。
+
+今状態では、HPの値も敵に見られてしまいます。
+
+そのようなことを防ぐために、フィールドの値を見れないようにする方法があります。
+
+それが、**カプセル化**です。
+
+カプセル化は、Characterクラスに、**private**と**public**を追加するだで、守ることができます。
+
+**private**は、プライベートなので外から値を見られないようにします。
+
+**public**は、公なので、どこからでも見ることができます。
+
+今回は、フィールドをprivateにして、メソッドをpublicに設定します。
+
+Characterクラスを変えてみましょう。
+
+
+＜Characterクラス＞
+
+```java
+public class Character {
+
+    /*コンストラクタ*/
+    public Character(String xxx, int hp, int ap){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = ap;
+    }
+
+    /*フィールド*/
+    private String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    public void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }    
+}
+```
+
+このように設定すると、Mainクラスのいたずらを記載したところがエラーになります。
+
+これは、**private**がついているフィールドやメソッドを外(他のクラス)から触ることができないですよと怒られるからです。
+
+いたずらのコードを消すと、ちゃんとプログラムが動作することがわかります。
+
+### ワーク5 : 考えてみよう！
+
+プログラムを間違えて、Characterクラスを下記のように設定してしまいました。
+
+すると、Mainクラスの方でエラーが起きてしまいます...。なぜでしょう？
+
+プログラムを修正してみましょう。
+
+＜Characterクラス＞
+
+```java
+public class Character {
+
+    /*コンストラクタ*/
+    private Character(String xxx, int hp, int ap){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = ap;
+    }
+    /*メソッド*/
+    private String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    public void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }    
+}
+```
+
+理由：
+<textarea rows="4" cols="50" ></textarea>
+
+<input id="btn_5" type="button" onclick="getCorrect(5)" value="正解を表示" />
+
+<div id="span_5" style=";padding:5px;display:none;">
+コンストラクタは、インスタンスが生成されるときに呼び出されるメソッドなので、それがprivateになってしまうと、インスタンスが生成できなくなってしまうため...<br/>
+
+※java.util.Calendarのように、わざとインスタンスを外から作らせないようにする手法もあります。（具体的な活用法は、応用編にて。）<br/>
+</div>
+
+#### アクセス修飾子
+
+ちなみに...このprivateやpublicのようなものを**アクセス修飾子**と呼びます。
+アクセス修飾子は、以下の4つに設定できます。
+
+| アクセス修飾子 | アクセスを許可する範囲 |
+| :---: | :-- |
+| private | 自分自身のクラスのみ |
+| 記載なし | 自身の属するパッケージ内のクラス |
+| protected | 自身の属数パッケージ内のクラス もしくは 自身を継承したクラス |
+| public | すべてのクラス |
+
+
+## GetterとSetter
+カプセル化がいたずらされないように、守ることであることはわかりました。
+しかし、今のままでは、Mainクラスからヒーローのフィールドの値にアクセスすることができません...。
+<br/>
+
+例えば、ナレーションで「ヒーローは、レベルアップしました。」と表示したいときに、
+下記のようなプログラムを記載すると、もちろんエラーになってしまいます。
+
+＜Mainクラス＞
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character("ヒーロー", 100, 10);
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       hero.callName();//名前を名乗る
+
+        //ナレーション
+        System.out.println(hero.name+"は、レベルアップしました。");        
+    }  
+}
+```
+
+そこで、登場するのが、**Getter**と**Setter**です。
+
+**Getter**は、privateで守られているフィールドの値を**取得**します。<br/>**Setter**は、privateで守られているフィールドの値を**設定**します。
+<br/>
+
+
+例えば、キャラクターの名前を取得するときのGetterは以下のように書きます。
+
+```java
+public String getName(){
+    return this.name;
+}
+```
+
+基本的には、「getフィールド名」で書くことが多いので、Getterと呼びます。<br/>
+例えば、キャラクターの名前を取得するときのSetterは以下のように書きます。コンストラクタで初期値を設定したときと似ています。
+
+```java
+public void setName(String xxxx){
+    this.name = xxxx;
+}
+```
+
+実際に、Characterクラスに記載すると以下のようになります。
+
+```java
+public class Character {
+
+    /*コンストラクタ*/
+    public Character(String xxx, int hp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = point;
+    }
+    /*フィールド*/
+    private String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    public void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }  
+
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+
+    // nameのSetter
+    public void setName(String xxxx){
+        this.name = xxxx;
+    }
+}
+```
+
+続いて、Mainクラスで**Getter**を持ちいて、**name**を**取得**しましょう。
+
+＜Mainクラス＞
+
+```java
+public class Main {
+    
+    public static void main(String[] args){
+        //heroを作りました。
+        Character hero = new Character("ヒーロー", 100, 10);
+
+        //メソッドの呼び出し
+       hero.attack(); //攻撃する。
+       hero.runAway(); //逃げる。
+       hero.callName();//名前を名乗る
+
+        //ナレーション
+        System.out.println(hero.getName()+"は、レベルアップしました。");        
+    }  
+}
+```
+
+
+
+これで、カプセル化で**private**されている値にどうしてもアクセスしたいときは、このようにアクセスすれば大丈夫です。
+
+
+
+
+### GetterとSetterのメリット
+例えば、**read only**のように、読み込みのみを許可したい場合は、
+Getterのみを定義すればOK！
+
+逆に、**write only**のように、書き込みのみを許可したい場合は、
+Setterのみを定義すればOK!
+
+とても便利です。
+
+<br/>
+
+また、値を取得・設定する際に、その値を本当に取得・設定してもいいのかをGeeterやSetterのメソッド内に書くことで、
+変なデータを作らないようにすることができます。
+
+例えば...下記のプログラムでは、setNameで「スライム」をしようとしたときに、名前を変更されないように防ぐことができます。
+
+```java
+// nameのSetter
+public void setName(String xxxx){
+    if("xxxx".equals("スライム")) {
+        return;
+    }
+    this.name = xxxx;
+}
+```
+
+### ワーク6: GetterとSetterを作ってみよう。
+
+それでは、Characterクラスに、「hp」と「attackPoint」のGetterとSetterを作ってみましょう。
+
+
+<input id="btn_6" type="button" onclick="getCorrect(6)" value="正解を表示" />
+
+<div id="span_6" style=";padding:5px;display:none;">
+正解<br/>
+★が追加したコード
+<pre style="background-color: #364549;color:#ffffff;">
+public class Character {
+
+    /*コンストラクタ*/
+    public Character(String xxx, int hp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = point;
+    }
+    /*フィールド*/
+    private String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    public void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }  
+
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+
+    // nameのSetter
+    public void setName(String xxxx){
+        this.name = xxxx;
+    }
+     
+    // hpのGetter
+    public int getHp(){
+        return this.hp;
+    }
+    // hpのSetter
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    // attackPointのGetter
+    public int getAttackPoint(){
+        return this.attackPoint;
+    }
+    // attackPointのSetter
+    public void setAttackPoint(int attackPoint){
+        this.attackPoint = attackPoint;
+    }
+}
+</pre>
+
+と書いてもらいましたけど....<br/>
+実は、Eclipseには、ショートカットキーがあるの知っていましたか？<br/>
+<br/>
+Windowsの場合は、「Shift」+「Alt」+「s」<br/>
+Macの場合は、「Command」+「Alt」+「s」<br/>
+<br/>
+これを押して、「getterとsetterの追加」を選択。<br/>
+追加したいフィールドに☑すればOK！<br/>
+
+</div>
+
+
+
+
+## 静的メンバ
+＜時間に余裕があれば..やります！＞
+
+### メンバとは？
+上記でやったように、クラスの中に定義されているものを指します。
+つまり、「メソッド」や「フィールド」のことを指します。
+
+### 静的とは？
+静的の対義語で、動的という言葉がります。
+
+このように、<br/>
+**静的**とは、動かないもの。変化しないもの。<br/>**動的**とは、動くもの。変化するもの。<br/>
+というものが一般的イメージです。<br/>
+<br/>
+Javaの**静的**の意味は、**メモリを固定する**という意味を持ちます。
+
+<!--ここに図解-->
+<br/>
+
+オブジェクト指向プログラミングの**静的**のイメージは、**共有部分**と**唯一無二の値**という2つの側面を持つイメージを作ることができます。<br/>
+オブジェクト指向プロラミングの本質は、クラスというモノの概念の型から、インスタンスという実態を作ることでした。<br/>
+例えば、インスタンスは、クラスからインスタンス化されたときに、メモリ上に作られるので、インスタンスは**動的**なものです。<br/>
+また、インスタンス内のフィールドやメソッドも当然**動的**なわけです。<br/>
+しかし、静的なメンバをクラスの中に定義することで、メモリを固定することができるので、どのインスタンスを作っても、メモリが固定されているため、**共有**で扱うことができるメモリを作ることができます。<br/>
+また、どんなにインスタンスを作っても静的なものは、新しく作られることがないので、**唯一無二**であるといえるでしょう。
+
+<!--ここに図解-->
+
+<br/>
+
+と言ってもわからないと思うので、実際に実験してみましょう。
+
+前回作ったCharacterクラスに、静的なメンバを追加します。
+静的なメンバは、**static**をつければ、OKです！
+
+例えば...
+
+```java
+public static String item;
+```
+
+みたいな感じです。
+これで、String型のitemというメモリは、どのインスタンスでも共有できる値となるわけです。
+
+実際に実験してみましょう。
+★が追加したところです。
+
+＜Characterクラス＞
+
+```java
+public class Character {
+
+	/*コンストラクタ*/
+    public Character(String xxx, int hp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = point;
+    }
+    
+    /*静的なメンバ*/
+    public static String item;//★
+
+    /*フィールド*/
+    private String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    public void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }  
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+
+    // nameのSetter
+    public void setName(String xxxx){
+        this.name = xxxx;
+    }
+     
+    // hpのGetter
+    public int getHp(){
+        return this.hp;
+    }
+    // hpのSetter
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    // attackPointのGetter
+    public int getAttackPoint(){
+        return this.attackPoint;
+    }
+    // attackPointのSetter
+    public void setAttackPoint(int attackPoint){
+        this.attackPoint = attackPoint;
+    }
+}
+```
+
+これで、静的なメンバを定義しました。
+<br/>
+
+実際に、この静的なメンバをMainクラスで使ってみましょう。
+
+今回は、わかりやすいように、ヒーローとヒロインを設定します。
+ヒーローが「剣」を手に入れて、ヒロインが「魔法の書物」を手に入れた時、
+プログラムの動きを見てみましょう。
+
+＜Mainクラス＞
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		//キャラクターを作りました。
+        Character hero = new Character("ヒーロー", 100,  10);
+        Character heroine = new Character("ヒロイン", 40,  10);
+
+       hero.callName();//名前を名乗る
+       heroine.callName();//名前を名乗る
+       
+       System.out.println("#ヒーローは、剣を手に入れた");
+       hero.item = "剣";
+       
+       System.out.println("ヒーローのアイテム："+hero.item);
+       System.out.println("ヒロインのアイテム："+heroine.item);
+       
+       System.out.println("#ヒロインは、魔法の書物を手に入れた");
+       heroine.item = "魔法の書物";
+       
+       System.out.println("ヒーローのアイテム："+hero.item);
+       System.out.println("ヒロインのアイテム："+heroine.item);
+       
+	}
+
+}
+```
+
+プログラムを実行してみましょう。
+下のような結果になったかと思います。
+
+```
+私の名前は、ヒーローだ！
+私の名前は、ヒロインだ！
+#ヒーローは、剣を手に入れた
+ヒーローのアイテム：剣
+ヒロインのアイテム：剣
+#ヒロインは、魔法の書物を手に入れた
+ヒーローのアイテム：魔法の書物
+ヒロインのアイテム：魔法の書物
+```
+
+ヒーローが「剣」を手に入れたはずなので、ヒロインも「剣」を持っています。
+また、ヒロインが「魔法の書物」を手に入れたはずなのに、ヒーローも「魔法の書物」を持っています。
+<br/>
+
+このように、staticで宣言したメンバは、メモリが共有されており、唯一無二の値になるので、インスタンスAで変更した結果が、
+インスタンスBやインスタンスCにも影響します。
+<br/>
+
+例えば、Characterクラスにて、★のように静的なメンバを追加します。
+また、コンストラクタが呼び出されるたびに、+1ずつすると、インスタンスがいくつできたかを数えることができます。
+
+```java
+public class Character {
+
+	/*コンストラクタ*/
+	public Character(String xxx, int hp, int point){
+	    this.name = xxx;
+	    this.hp = hp;
+	    this.attackPoint = point;
+	    countCharacter++;//★
+	}
+	    
+	/*静的なメンバ*/
+	public static String item;
+	public static int countCharacter;//★
+
+	/*フィールド*/
+	private String name; //キャラクターの名前
+	private int hp; //現在のHPの状態
+	private int attackPoint; //攻撃力
+
+    /*********************
+          以下省略
+    **********************/
+}
+```
+
+countCharacterの値を先ほどのMainクラスで出力してみましょう。
+
+★が追加したプログラムです。
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		//キャラクターを作りました。
+        Character hero = new Character("ヒーロー", 100,  10);
+        Character heroine = new Character("ヒロイン", 40,  10);
+
+       hero.callName();//名前を名乗る
+       heroine.callName();//名前を名乗る
+       
+       System.out.println("#ヒーローは、剣を手に入れた");
+       hero.item = "剣";
+       
+       System.out.println("ヒーローのアイテム："+hero.item);
+       System.out.println("ヒロインのアイテム："+heroine.item);
+       
+       System.out.println("#ヒロインは、魔法の書物を手に入れた");
+       heroine.item = "魔法の書物";
+       
+       System.out.println("ヒーローのアイテム："+hero.item);
+       System.out.println("ヒロインのアイテム："+heroine.item);
+       System.out.println("キャラクター数："+Character.countCharacter);//★
+       
+	}
+
+}
+```
+
+プログラムの実行結果を見ると、キャラクター数が2と表示されています。
+このように、共有メモリがあることで、とても便利に扱うことができます。
+
+また、静的なメンバに限り、というように呼び出すことができます。
+
+```java
+クラス名.静的なメンバ
+```
+
+上のプログラムでも下のように呼び出されています。
+
+```java
+Character.countCharacter
+```
+
+これは、「hero.item」と「heroine.item」が同じものさしているので、
+静的メンバのみこのような表記で書くことが許されています。
+
+しかし、動的なメンバは、同じことはできません。
+
+```java
+Character.getName();//エラーになる。
+```
+
+なぜなら、どのインスタンスのnameを取得していいかわからないですからね。
+
+<br/>
+
+静的メンバの余談
+
+<input id="btn_y5" type="button" onclick="getCorrect('y5')" value="余談" />
+<div id="span_y5" style=";padding:5px;display:none;">
+基本的な使われ方をするのは、クラス内に定数を定義するときは、staticをつけて静的にすることが多いです。<br/>
+
+<pre style="background-color: #364549;color:#ffffff;">
+public static int XXXXX = 1000;
+</pre>
+
+理由は、インスタンスの数だけメモリを消費しないようにするためです。<br/>
+</div>
+
+
+staticの余談
+
+<input id="btn_y6" type="button" onclick="getCorrect('y6')" value="余談" />
+<div id="span_y6" style=";padding:5px;display:none;">
+staticといえば、
+
+<pre style="background-color: #364549;color:#ffffff;">
+public static void main(String[] args){
+
+}
+</pre>
+
+でおなじみのmain関数です。<br/>
+これも静的な関数なわけです。<br/>
+なぜなら、main関数がいくつも存在しては、実行するときどれを実行していいかわからないですよね？<br/>
+つまり、main関数は、staticである必要があります。<br/>
+このように、他に存在させたくないという時に、staticは有効なので、活用してみましょう。<br/>
+具体的な活用のやり方は、応用編にて。
+</div>
+
+
+## 継承
+前章では、Characterクラスを作りましたが、ほとんど同じ設定内容だけど、一部だけ特徴的を持たせたキャラクターを作りたい！というときに、**継承**はとても便利です。<br/>
+今回は、魔法を使えるキャラクター「魔法使い」を作ってみましょう。<br/>
+
+<img src="img/magician.jpg"/>
+
+
+<br/>
+魔法使いには、以下のフィールドとメソッドがあります。
+
+〇フィールド
+
+名前
+
+HPの最大値
+
+現在のHP
+
+MPの最大値★
+
+現在のMP★
+
+攻撃力
+
+
+〇メソッド
+
+攻撃する
+
+魔法を使う★
+
+逃げる
+
+名前を名乗る
+
+
+
+このクラスをまともに作るとしたら、以下のようにプログラムを作ります。
+
+＜MagicCharacterクラス＞
+
+```java
+public class MagicCharacter {
+
+    /*コンストラクタ*/
+    private MagicCharacter(String xxx,  int hp,  int mp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.hp = mp;//★
+        this.attackPoint = point;
+    }
+    /*フィールド*/
+    private String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int mp; //現在のMPの状態★
+    private int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    public void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+    //自分の名前を名乗る
+    void callName(){
+        System.out.println("私の名前は、"+this.name+"だ！");
+    }  
+
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+    // nameのSetter
+    public void setName(String xxxx){
+        this.name = xxxx;
+    }
+    
+    // hpのGetter
+    public int getHp(){
+        return this.hp;
+    }
+    // hpのSetter
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    // attackPointのGetter
+    public int getAttackPoint(){
+        return this.attackPoint;
+    }
+    // attackPointのSetter
+    public void setAttackPoint(int attackPoint){
+        this.attackPoint = attackPoint;
+    }
+
+    // mpのGetter★
+    public int getMp(){
+        return this.mp;
+    }
+    // mpのSetter★
+    public void setMp(int xxxx){
+        this.mp = xxxx;
+    }
+
+}
+```
+
+
+しかし、★を付けたところ以外は、Characterクラスと全部同じです。<br/>
+<br/>
+例えば、setName()を新しく変えたいとしたときに、CharacterクラスとMagicCharacterクラスの両方を変えるのは、面倒くさいですよね？<br/>
+このようなことが起こらないように、Javaには、**継承**という考え方があります。<br/>
+この継承の考え方はとても便利で、<br/>
+<br/>
+例えば、どのキャラクターにも必要な設定を**BasicCharacterクラス**を作ってまとめておき、そのクラスを**継承**して、「勇者クラス」「魔法使いクラス」「盗賊クラス」「格闘家クラス」....などを作っていけばよいのです。
+
+
+<img src="img/characters.jpg"/>
+
+試しに、**BasicCharacter**クラスを作成し、それを継承する勇者キャラクタークラス(**HeroCharacter**)と魔法使いキャラクタークラス(**MagicianCharacter**)を作成します。<br/>
+<br/>
+
+以前、作成したCharacterクラスを少し機能を削って作ります。
+
+
+
+※今まで使っていたCharacterクラスはもう使いません。
+
+
+
+
+＜BasicCharacter＞
+
+
+|項目  |  入力値  |
+| :--- | :--- |
+|  名前（クラス名）  |  BasicCharacter |
+
+
+```java
+public class BasicCharacter {
+
+	/*コンストラクタ*/
+    public BasicCharacter(String xxx, int hp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = point;
+    }
+    
+ 
+    /*フィールド*/
+    private String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /*メソッド*/
+    //攻撃する
+    public void attack(){
+        System.out.println("攻撃");
+    }
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+
+    // hpのGetter
+    public int getHp(){
+        return this.hp;
+    }
+    // hpのSetter
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    // attackPointのGetter
+    public int getAttackPoint(){
+        return this.attackPoint;
+    }
+}
+```
+
+＜HeroCharacter＞
+
+
+|項目  |  入力値  |
+| :--- | :--- |
+|  名前（クラス名）  |  HeroCharacter |
+
+
+```java
+public class HeroCharacter extends BasicCharacter {
+
+	/*コンストラクタ*/
+    public HeroCharacter(String xxx, int hp, int point){
+        super(xxx,hp,point);
+    }
+
+    /*メソッド*/
+    //攻撃する
+    @Override
+    public void attack(){
+        System.out.println(this.getName()+"の剣で攻撃");
+    }
+
+}
+```
+
+Mainクラスも少しシンプルにして、実行してみましょう。
+
+＜Main＞
+
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		//キャラクターを作りました。
+	    HeroCharacter hero = new HeroCharacter("ヒーロー", 100,  10);
+	
+	    hero.attack();
+       
+	}
+
+}
+```
+
+
+このように、**extends 親クラス**と記載することで、親クラスに書かれていることをわざわざ重複して書かなくてもよくなります。<br/>
+しかし、コンストラクタだけは、自身の名前で呼ばなければならないので、注意が必要です。<br/>
+<br/>
+
+親のコンストラクタを呼ぶ場合は、
+
+```java
+super();
+```
+
+を使います。
+
+**this**は、**自分自身のクラスのインスタンス**を表し、フィールドやメソッド、コンストラクタを扱えます。
+
+**super**は、**親クラスのインスタンス**を表し、フィールドやメソッド、コンストラクタを扱えます。
+
+
+### オーバーライド
+
+また、上記のメソッドでは、**BasicCharacter**クラスに**attackメソッド**が書かれているものを、同じものを定義しています。
+
+<br/>
+
+このように、親クラスで定義しているものを子クラスで同じものを定義すると、定義が上書きされてしまうのです。これを**オーバーライド**と言います。
+
+上記のプログラムでは、**@Override**と記載していますが、書かなくてもプログラムは動きます。
+これは、明示的にOverrideと記載することで、上書きしていることを明示しています。
+<br/>
+
+うっかり親クラスで定義されているメソッドを消してオーバーライドしないように注意をしましょう。<br/>
+**@Override**は、親クラスに同じメソッドがない場合は、コンパイルエラーで知らせてくれるので、<br/>
+親クラスに持っているか不安な時は、**@Override**をつけて、エラーになるかどうか試してみるとよいでしょう。<br/>
+<br/>
+試しに、コンストラクタに**@Override**をつけるとエラーになります。
+
+```java
+/*コンストラクタ*/
+@Override // エラーで知らせてくれる
+public HeroCharacter(String xxx, int hp, int point){
+    super(xxx,hp,point);
+}
+```
+
+
+
+### ワーク7：同様に、MagicaianCharacterを作ってみましょう。
+
+それでは、下記の条件を入れて、MagicianCharacterクラスを作ってみましょう。
+
+＜条件＞
+- BasicCharacterクラスを継承する
+- mpのフィールドを定義する
+- コンストラクタでmpの値も設定するようにする
+- attackメソッドをオーバーライドし、「杖で攻撃」を出力する
+- magicメソッドを新しく追加し、「魔法を使用」を出力する
+
+下記のMainクラスで実行します。
+
+＜Mainクラス＞
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		//キャラクターを作りました。
+	    HeroCharacter hero = new HeroCharacter("ヒーロー", 100,  10);
+	    MagicianCharacter magician = new MagicianCharacter("マジシャン", 50, 100, 3);
+	
+	    //攻撃
+	    hero.attack();
+	    magician.attack();
+
+	}
+
+}
+```
+
+<input id="btn_h7" type="button" onclick="getHint('h7')" value="ヒント" />
+
+<div id="span_h7" style=";padding:5px;display:none;">
+ヒント<br/>
+＜MagicianCharacter＞
+<pre style="background-color: #364549;color:#ffffff;">
+
+public class MagicianCharacter extends BasicCharacter {
+
+	/*コンストラクタ*/
+    public MagicianCharacter(String xxx, int hp, int mp, int point){
+        super(xxx,hp,point);
+        /*ここに処理を追加*/
+    }
+
+    /*フィールド*/
+    // ここにmpを追加
+    /*メソッド*/
+    //攻撃する
+    @Override
+    public void attack(){
+    	// ここに杖で攻撃をする表示処理を追加
+    }
+    //魔法を使う
+    // attackメソッドと同様にここに作成してみましょう。
+
+}
+</pre>
+
+</div>
+
+
+
+<input id="btn_7" type="button" onclick="getCorrect(7)" value="正解を表示" />
+
+<div id="span_7" style=";padding:5px;display:none;">
+正解<br/>
+＜MagicianCharacter＞
+<pre style="background-color: #364549;color:#ffffff;">
+
+public class MagicianCharacter extends BasicCharacter {
+
+	/*コンストラクタ*/
+    public MagicianCharacter(String xxx, int hp, int mp, int point){
+        super(xxx,hp,point);
+        this.mp = mp;
+    }
+
+    /*フィールド*/
+    private int mp;
+    /*メソッド*/
+    //攻撃する
+    @Override
+    public void attack(){
+        System.out.println(this.getName()+"の杖で攻撃");
+    }
+    //魔法を使う
+    public void magic(){
+        System.out.println(this.getName()+"が魔法を使った");
+    }
+}
+</pre>
+
+</div>
+
+時間の余った人は、ほかのBasicCharacterクラスを継承して、キャラクターを作ってみましょう。
+
+
+
+## 抽象クラスとインターフェース
+**「抽象クラス」**、**「インターフェース」**？という言葉を聞くだけで、少し苦手意識を持っていませんか？
+
+実は、**抽象クラス**と**インターフェース**は「**難しい**」ものではなく、むしろ物事を「**単純化**」する考え方です。
+
+単純化とは、すなわち、物事を**抽象的**にすることです。
+
+
+## 抽象クラス
+
+例えば、先ほど作成したクラスの中に、攻撃をするメソッドがあります。
+
+この攻撃するメソッドは、キャラクターによって、動作が微妙に違います。
+
+<br/>
+
+勇者は、「剣で攻撃」
+
+魔法使いは、「杖で攻撃」
+
+格闘家は、「パンチで攻撃」
+
+<br/>
+
+しかし、**単純に見たら**、キャラクターが**攻撃をしている**ことにはかわりありません。
+
+これをプログラムに表したものが、**抽象クラス**です。
+
+抽象的な概念を定義されているから、抽象クラスです。
+
+つまり、**具体的**なことは**決めなくて**、「攻撃する」ことだけをあえて**抽象的**に定めます。
+
+先ほど作ったBasicCharacterクラスを抽象化してみましょう。
+
+★が変更部分です
+
+```java
+public abstract class BasicCharacter {//★
+
+	/*コンストラクタ*/
+    public BasicCharacter(String xxx, int hp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = point;
+    }
+    
+ 
+    /*フィールド*/
+    private String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /* 抽象メソッド *///★
+    //攻撃する
+    public abstract void attack(); //★
+    
+    /*メソッド*/
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+
+    // hpのGetter
+    public int getHp(){
+        return this.hp;
+    }
+    // hpのSetter
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    // attackPointのGetter
+    public int getAttackPoint(){
+        return this.attackPoint;
+    }
+}
+```
+
+これで、抽象クラスの完成です。
+
+Mainクラスは、そのままにして、実行してみましょう。
+
+
+このように**メソッドの戻り値と引数のみを定義**して、**具体的な中身をあえて書かない**ようにすることで、
+
+「**継承したクラスで具体的なこと書いてね！**」というメッセージになっているのです。
+
+このようなメソッドを**抽象メソッド**といいます。
+
+**抽象メソッド**は、子クラスに**強制的にオーバーライドさせるため**に定義するメソッドです。
+
+例えば、HeroCharacterクラスが、attackメソッドをもし書き忘れて、以下のようなままだと、コンパイルエラーになります。
+
+
+＜HeroCharacter＞
+
+```java
+public class HeroCharacter extends BasicCharacter {
+
+	/*コンストラクタ*/
+    public HeroCharacter(String xxx, int hp, int point){
+        super(xxx,hp,point);
+    }
+
+}
+```
+
+**「実装されていないメソッドがあります」**と怒られてしまいます。
+
+**抽象メソッドのままでは実行できない**ため、**必ず子クラスで具体的なメソッドの機能を定義**をしなければいけません。
+
+親の言うことは、絶対なわけです。笑
+
+（でも、具体的にどうするかは自分で決めることができるからね！）
+
+　
+<br/>
+
+しかし、**抽象クラス**には、**デメリット**があります。
+
+それは、**抽象クラス自身のインスタンスを作ることはできません。**
+
+なぜなら、インスタンスができてしまった場合、抽象メソッドを実行することができないからです。
+
+試しに、Mainクラス内で、下記のコードを記述すると、エラーになります。
+
+
+```java
+BasicCharavter basicCharacter = new BasicCharacter("hoge", 100, 100);
+```
+
+
+#### なぜ、抽象クラスなんてわざわざ作るのか？
+それは、基本的には、複数人でプログラムを開発するときに大きなメリットがあります。
+
+例えば、ECサイトで、商品というクラスを作る際に、**必ず定義しておいてほしいものを決めます。**
+
+フィールドは、
+
+値段、商品名、カテゴリー、価格....
+
+メソッドは、
+
+個数に応じた合計金額を返すメソッド、海外からの輸入商品かどうかを返すメソッド...
+
+
+これらを書面等で共有していても、だれか一人がコーディングミスをするだけで、バグになってしまいます。
+
+その時に、BasicProductというクラスを作って、あとは、その「クラスを継承する」という取り決めだけ
+決めてしまえば、楽になりませんか？
+
+このように抽象は、**どんな機能を子クラスで実装してほしいかを決めるためのクラス**といってもいいでしょう。
+
+このように、抽象クラスは、規模が大きければ大きいほど、力を発揮するとても便利な機能です。
+
+
+
+## インターフェース
+いよいよ、最後の**インターフェース**です。
+
+最後にまた新しい単語....と思った方も多いはず。
+
+でも、どこかで耳にしたことがある言葉のはず。
+
+○○インターフェースという言葉は、割とよく使われます。
+
+インターフェースという言葉自体は、「**接している面、境界面**」という意味があります。
+
+<br/>
+例えば、ユーザーインターフェースは、主にユーザーとアプリケーションの接するボタンやタッチパネルなど、全般を指します。
+
+オブジェクト指向でいう
+
+**インターフェース**は、**抽象クラスをさらに抽象化したもの**と捉えるとよいです。
+
+<br/>
+　
+基本的には、抽象クラスと同じように、「最低限の取り決めだけを決める」ためのものです。
+
+<br/>
+
+例えば、テレビのリモコンのボタンを押したら、テレビがつきます。
+
+別にテレビを操作するだけなら、リモコンの中身がどんな仕組みでできているのかは、関係ありません。
+
+リモコンのボタンを押すと、テレビがつくということが重要なのです。
+
+このように、概念を単純化していく考えこそが、インターフェースです。
+
+<br/>
+　
+同じように、先ほど作成したキャラクターが戦うとき、「**バトル**」という側面を見れば、「攻撃する」「逃げる」「アイテムを使う」などの最低限の機能があれば、どんなものであろうと、バトルはできます。
+
+<!--ここに図解-->
+
+このように、あることをするのに最低限のものを揃えることを定義するときに、インターフェースを使います。
+
+
+それでは、バトルインターフェースを作成しましょう。
+
+インターフェースは、以下のようにプログラムで書きます。
+
+＜Battle＞
+
+```java
+public interface Battle {
+    
+    int MAX_PLAYER = 4; //戦うプレーヤの上限
+
+    void attack(); //攻撃する
+    void runAway(); //逃げる
+    void useItem(String item); //アイテムを使う
+
+}
+```
+
+こんな感じで作成します。
+
+このプログラムを見ると、abstractをつけていないのに、抽象メソッドみたいな書き方をして怒られないかと
+疑問に思いますよね？
+
+```java
+//インターフェースの書き方
+void attack(); //攻撃する
+
+//抽象メソッドの書き方
+abstract void attack(); //攻撃する
+```
+
+実は、インターフェースに定義されるフィール��とメソッドは、**暗黙的に**以下のルールがあります。
+
+- **宣言されるすべてのフィールドは、静的な定数である**
+- **宣言されるすべてのメソッドは抽象クラスである**
+
+
+よって、**abstract**をつけなくても抽象メソッドしかそもそも定義できないので、
+わざわざ書かなくてもよいというわけです。（初心者殺し）
+
+また、MAX_PLAYERも何も書かれていないけど、**static final**です。（初心者殺し）
+
+
+抽象クラスは、まだ具体的なメソッドが書けたけど....
+インターフェースは書けないなんて、だったら抽象クラスのほうが万能な気がしますよね？
+
+その答えは後程、お伝えします。
+
+とりあえず、インターフェースと抽象クラスは、とても似ていて、
+
+**インターフェースのほうが抽象クラスよりもより抽象的なもの**なのだなということが、
+インターフェースを学ぶポイントです。
+
+
+### インターフェースの実装
+インターフェースは、抽象的なものなので、具体的なことを書いて使ってくれる子クラスみたいな存在が必要です。
+
+抽象クラスでは、**継承**をして「親クラス」と「子クラス」の関係でしたが、
+
+インターフェースでは、**実装**をして「インターフェース」と「実装クラス」の関係になります。
+
+わざわざ言葉が違うので、書き方も違います。
+
+今回は、BasicCharacterに「戦う」機能をつけたいと思い、BasicCharacterクラスに、「Battler」インターフェースを実装してもらいましょう。
+
+
+```java
+public abstract class BasicCharacter implements Battle {//★
+
+	/*コンストラクタ*/
+    public BasicCharacter(String xxx, int hp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = point;
+    }
+ 
+    /*フィールド*/
+    protected String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /* 抽象メソッド */
+    public abstract void attack(); 
+  
+    /*メソッド*/
+    //逃げる
+    public void runAway(){
+        System.out.println("逃げる");
+    }
+
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+
+    // hpのGetter
+    public int getHp(){
+        return this.hp;
+    }
+    // hpのSetter
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    // attackPointのGetter
+    public int getAttackPoint(){
+        return this.attackPoint;
+    }
+}
+```
+
+すると、**HeroCharacter**クラスと**MagicianCharacter**クラスのそれぞれで、**userItem**メソッドが定義されていないので、
+「戦うことができません。」とコンパイルエラーで怒られます。
+
+<!--今のクラス図を見ると、以下のようになります。-->
+
+<!--ここに図解-->
+
+よって、二つのクラスに、以下のコードを追加します。
+
+```java
+//アイテムを使う。
+@Override
+public void useItem(String item) {
+    System.out.println(this.getName()+"は、"+item+"を使った");
+}
+```
+
+
+実際に追加してみましょう。
+
+＜HeroCharacter＞
+
+
+```java
+public class HeroCharacter extends BasicCharacter {
+
+	/*コンストラクタ*/
+    public HeroCharacter(String xxx, int hp, int point){
+        super(xxx,hp,point);
+    }
+
+    /*メソッド*/
+    //攻撃する
+    @Override
+    public void attack(){
+        System.out.println("剣で攻撃");
+    }
+    //アイテムを使う。★
+	@Override
+	public void useItem(String item) {
+        System.out.println(this.getName()+"は、"+item+"を使った");
+	}
+
+}
+```
+
+
+＜MagicianeCharacter＞
+
+
+```java
+public class MagicianCharacter extends BasicCharacter {
+
+	/*コンストラクタ*/
+    public MagicianCharacter(String xxx, int hp, int mp, int point){
+        super(xxx,hp,point);
+        this.mp = mp;
+    }
+
+    /*フィールド*/
+    private int mp;
+    /*メソッド*/
+    //攻撃する
+    @Override
+    public void attack(){
+        System.out.println("杖で攻撃");
+    }
+    //魔法を使う
+    public void magic(){
+        System.out.println("魔法を使用");
+    }
+    //アイテムを使う。★
+	@Override
+	public void useItem(String item) {
+        System.out.println(this.getName()+"は、"+item+"を使った");
+	}
+
+}
+```
+
+
+これに伴って、Mainクラスも変えてみましょう。
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		//キャラクターを作りました。
+	    HeroCharacter hero = new HeroCharacter("ヒーロー", 100,  10);
+	    MagicianCharacter magician = new MagicianCharacter("マジシャン", 50, 100, 3);
+	    
+	    //バトル開始
+	    System.out.println("##########バトル開始！##########");
+	    
+	    //攻撃
+	    hero.attack();
+	    magician.attack();
+
+	    //アイテム
+	    hero.useItem("やくそう");
+	    magician.useItem("どくけしそう");
+	    
+	}
+
+}
+```
+
+実行すると、実際にバトルをしているようなプログラムができました。
+
+
+#### インターフェースと抽象クラスの違い
+ここまで聞くと、インターフェースと抽象クラスって何が違うの？となります。（多くの人が持つ疑問）
+
+
+実際、使う目的は、ほぼほぼ同じです。
+インターフェースや抽象クラスで定義されているものを実装クラスや子クラスで具体的に決めてほしいという目的です。
+
+しかし、インターフェースと抽象クラスは、それぞれ得意不得意があるのです。
+
+##### 抽象クラスの得意分野・不得意分野
+○得意
+抽象的なメソッドを定義できる
+具体的なメソッドも定義できる
+
+○不得意
+「親:子」は、必ず「1:多」にならないといけない。
+
+
+##### インターフェースの得意分野・不得意分野
+
+○得意
+
+多重継承ができる。「親:子」は、「多:多」になってもよい。
+
+抽象的なメソッドを定義できる
+
+<br/>
+○不得意
+
+具体的なメソッドを定義できない
+
+
+#### ワーク8　インターフェースと抽象クラスを使って、敵を作ろう
+
+それでは、敵を作って、戦わせましょう。
+
+<img src="img/slime.jpg"/>
+
+
+Mainクラスを以下のように、設定します。
+
+＜Mainクラス＞
+
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		//キャラクターを作りました。
+	    HeroCharacter hero = new HeroCharacter("ヒーロー", 100,  10);
+	    MagicianCharacter magician = new MagicianCharacter("マジシャン", 50, 100, 3);
+	    
+	    //敵を作りました。
+	    Slime s = new Slime("スライム1", 10,  1);
+
+	    //バトル開始
+	    System.out.println("##########バトル開始！##########");
+	    
+	    //攻撃
+	    hero.attack();
+	    magician.attack();
+
+	    //敵の攻撃
+	    s.attack();
+	    
+	    //アイテム
+	    hero.useItem("やくそう");
+	    
+	    //攻撃
+	    hero.attack();
+	    magician.attack();
+
+        //バトル終了
+	    System.out.println("##########バトル終了##########");
+
+	}
+
+}
+```
+
+上のMainクラスで動くように、BasicEnemyクラスとSlimeクラスを下記の条件で作成しましょう。
+
+＜BasicEnemyクラス＞
+
+下記の内容に、Battleインターフェースを実装してください。
+
+```java
+public abstract class BasicEnemy {
+
+	public BasicEnemy(String xxx, int hp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = point;
+    }
+	
+    /*フィールド*/
+    protected String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /* 抽象メソッド */
+    //攻撃する
+    public abstract void attack(); //★
+    
+    /*メソッド*/
+    //逃げる
+    public void runAway(){
+        System.out.println("敵は逃げた");
+    }
+
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+
+    // hpのGetter
+    public int getHp(){
+        return this.hp;
+    }
+    // hpのSetter
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    // attackPointのGetter
+    public int getAttackPoint(){
+        return this.attackPoint;
+    }
+}
+```
+
+
+
+
+＜Slimeクラス＞
+
+|項目  |  入力値  |
+| :--- | :--- |
+|  名前（クラス名）  |  Slime |
+|  継承  |  BasicEnemyクラスを継承 |
+
+　
+＜Slimeクラスのフィールド＞
+
+※BasicEnemyクラスから継承
+　
+＜Slimeクラスのメソッド＞
+
+| 項目 | メソッド名 | メソッドの処理 |
+| :---: | :---: | :---: |:-- |
+| コンストラクタ | Slime | 親クラスのコンストラクタの呼び出し。「野生のスライムが現れた」とコンソールに表示。 |
+|  BattleインターフェースのuserItemメソッドを実装 | userItem | 「(自分の名前)は、アイテムを使おうとしたが、持っていなかった。」とコンソールに表示。 |
+|  Battleインターフェースのattckメソッドを実装 | attack |「(自分の名前)の攻撃」とコンソールに表示。 |
+
+
+<input id="btn_8" type="button" onclick="getCorrect(8)" value="正解を表示" />
+
+<div id="span_8" style=";padding:5px;display:none;">
+正解<br/>
+＜BasicEnemy＞
+
+★が追加
+<pre style="background-color: #364549;color:#ffffff;">
+public abstract class BasicEnemy implements Battle{ //★
+
+	public BasicEnemy(String xxx, int hp, int point){
+        this.name = xxx;
+        this.hp = hp;
+        this.attackPoint = point;
+    }
+	
+    /*フィールド*/
+    protected String name; //キャラクターの名前
+    private int hp; //現在のHPの状態
+    private int attackPoint; //攻撃力
+
+    /* 抽象メソッド */
+    //攻撃する
+    public abstract void attack(); //★
+    
+    /*メソッド*/
+    //逃げる
+    public void runAway(){
+        System.out.println("敵は逃げた");
+    }
+
+    /*GetterとSetter*/
+    // nameのGetter
+    public String getName(){
+        return this.name;
+    }
+
+    // hpのGetter
+    public int getHp(){
+        return this.hp;
+    }
+    // hpのSetter
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    // attackPointのGetter
+    public int getAttackPoint(){
+        return this.attackPoint;
+    }
+}
+</pre>
+
+
+＜Slimeクラス＞
+<pre style="background-color: #364549;color:#ffffff;">
+public class Slime extends BasicEnemy {
+
+	public Slime(String xxx, int hp, int point){
+        super(xxx,hp,point);
+        System.out.println("野生のスライムが現れた");
+    }
+	
+	@Override
+	public void useItem(String item) {
+		System.out.println(this.getName()+"は、アイテムを使おうとしたが、持っていなかった。");
+	}
+
+	@Override
+	public void attack() {
+        System.out.println(this.getName()+"の攻撃");
+	}
+}
+</pre>
+
+
+</div>
+
+
+
+#### インターフェースや抽象クラスの利用価値（ポリモーフィズム）
+
+最後に、ヒーローとマジシャンとスライム1の戦いを管理できるように、下記のように、BattleMangerクラスを作成してみます。
+※BattleMangerクラスは、今まで書いたMainクラスの戦う処理をそのまま移行したものです。
+
+
+＜BattleManager＞
+
+```java
+public class BattleManager {
+
+	private HeroCharacter c1;
+	private MagicianCharacter c2;
+	private Slime e1;
+	
+	BattleManager(HeroCharacter character1,MagicianCharacter character2, Slime enemy1){
+		this.c1 = character1;
+		this.c2 = character2;
+		this.e1 = enemy1;
+	}
+	
+	public void doBattle() {
+		
+	    //攻撃
+	    c1.attack();
+	    c2.attack();
+
+	    //敵の攻撃
+	    e1.attack();
+	    
+	    //アイテム
+	    c1.useItem("やくそう");
+	    c2.useItem("どくけしそう");
+
+	}
+		
+}
+```
+
+Mainクラスも下記のように書き換えます。
+
+＜Main＞
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		//キャラクターを作りました。
+	    HeroCharacter hero = new HeroCharacter("ヒーロー", 100,  10);
+	    MagicianCharacter magician = new MagicianCharacter("マジシャン", 50, 100, 3);
+	    
+	    //敵を作りました。
+	    Slime s = new Slime("スライム1", 10,  1);
+	    
+	    // キャラクターを設定
+	    BattleManager bm = new BattleManager(hero, magician, s);
+	    
+	    // 戦う
+	    bm.doBattle();
+	    	    
+	}
+
+}
+```
+
+このように書くことで、Mainクラスが見やすくなりました。
+
+しかし、このクラスのままでは、BattleMangerクラスには、コンストラクタで、HeroCharacter,ManagicianCharacter,Slimeの型しか受け付けていないので、このキャラクター達しか戦うことができません。
+
+もし、ほかのキャラクターを戦わせる場合、BattleManagerクラスのコンストラクタを作るのは大変です。
+
+そもそも【BattleManagerクラスから見たら、Battleの機能を実装しているクラス】であればよいわけです。
+
+その場合、下記のようにBattleMangerクラスを変更することで、Battleの機能を実装したクラスという抽象的なオブジェクトを扱うことができます。
+
+
+
+```java
+package com.object.basic;
+
+public class BattleManager {
+
+	private Battle c1;
+	private Battle c2;
+	private Battle e1;
+	
+	BattleManager(Battle character1,Battle character2, Battle enemy1){
+		this.c1 = character1;
+		this.c2 = character2;
+		this.e1 = enemy1;
+	}
+	
+	public void doBattle() {
+		
+	    //攻撃
+	    c1.attack();
+	    c2.attack();
+
+	    //敵の攻撃
+	    e1.attack();
+	    
+	    //アイテム
+	    c1.useItem("やくそう");
+	    c2.useItem("どくけしそう");
+
+	}
+	
+}
+```
+
+このようにすることで、コンストラクタでBattleを実装しているクラスを受け付けるという意図を持たせることができるのです。
+
+
+もっと言えば、今までは、変数の型とインスタンスの型が同じように記載していました。
+
+```java
+HeroCharacter hero = new HeroCharacter("ヒーロー", 100,  10);
+MagicianCharacter magician = new MagicianCharacter("マジシャン", 50, 100, 3);
+Slime s = new Slime("スライム1", 10,  1);
+```
+
+しかし、Battleのインターフェースを実装していて、Battleの機能しか使わない場合などは、
+下記のように、変数の方は、Battleでインスタンスはそれぞれの具体的な型でつくることができます。
+
+```java
+Battle hero = new HeroCharacter("ヒーロー", 100,  10);
+Battle magician = new MagicianCharacter("マジシャン", 50, 100, 3);
+Battle s = new Slime("スライム1", 10,  1);
+```
+
+この場合、後者はの「hero」「magician」「s」は、Battleの機能のみしか使えないことに注意してください。
+
+例えば、「hero.getName()」のように、getNameメソッドを呼び出せないデメリットもあります。
+
+※その場合は、(HeroCharacter)hero.getName()のように記載をすることで、抽象的な型から具体的な型に変換することができます。
+
+
+このあたりの便利さは、開発の規模が大きければ大きくなるほどとても重要になっていきます。
+
+
+この辺りは、オブジェクト指向の応用編で詳しく扱います。
+
+
+
+
+以上で、基本的なオブジェクト指向の講座は、終了です。
+
+
+更に、深めたい人は、
+
+
+実際に、上記のプログラムを改変して、「攻撃をしたときに、相手の攻撃力分HPを削る」ようにしたり、コマンドラインからン入力したコマンドに沿って、プログラムを操作できるようにするのも面白いかと思います。
+
+
+いずれにせよ、オブジェクト指向って意外と単純なものなんだなと知ってもらえたら、なによりです。
+
+
+
+## デザインパターンの紹介
+今回学んだオブジェクト指向の概念を理解し、基礎を学ぶものでした。
+
+今日の学んだことを理解できれば、オブジェクト指向は、難しいものではなく、よりシンプルで単純化する考えだったということがわかってもらえたかなと思います。
+
+しかし、実際に、
+
+このインターフェースや抽象クラスや継承やらを使うにはどうしたらよいか？
+実際のプロジェクトにどのように生かしたらいいの？
+
+という悩みは、絶えずあるでしょう。
+
+実は、世の中に何千、何万とあるシステム開発の中で使われているオブジェクト指向を用いたプログラムをパターン化してまとめたものがあります。
+
+それが、**デザインパターン**と言われるものです。
+
+この分野は、次回の応用編で紹介しますので、乞うご期待！！
+
+
+気になる方は、「オブジェクト指向　デザインパターン」と検索してみましょう。
+
+### じゃんけんゲームにLet's チャレンジ
+
+じゃんけんゲーム
+
+https://github.com/k-sasaking/janken-java
+
+### アンケートにご協力ください。
+最後に、アンケートにご協力をお願いします。
+
+<a href="https://forms.gle/6JK8DxEkVFzHx5V16">https://forms.gle/6JK8DxEkVFzHx5V16</a>
+
+上のURLに入れない方は、紙のアンケートにお願いします。
+
+
+<script>
+function getCorrect(id){
+    changeText(id,'正解を表示',"#de4e2e");
+}
+function moreQuestion(id){
+    changeText(id,'挑戦!',"#228822");
+}
+function getNone(id){
+    changeText(id,'表示',"#334433");
+}
+function getHint(id){
+    changeText(id,'ヒント',"#334433");
+}
+function getReference(id){
+    changeText(id,'参考','#228822');
+}
+function readDigression(id){
+    changeText(id,'余談','#228822');
+}
+function changeText(id,text,color){
+    let span = document.getElementById('span_'+id);
+    let btn = document.getElementById('btn_'+id);
+    if(btn.value == '非表示'){
+        btn.value = text;
+        span.style.display = 'none';
+    }else{
+        btn.value = '非表示';
+        span.style.display = 'block';
+        span.style.color = color
+    }
+
+}
+
+function picturesClickEvent(id){
+    let nextId = id == 8 ? 1 : (id+1);
+    let prev = document.getElementById('pictures_'+id);
+    let next = document.getElementById('pictures_'+nextId);
+    prev.style.display = 'none';
+    next.style.display = 'block';
+}
+
+</script>
+
