@@ -1435,7 +1435,6 @@ for i in range(15):
 <br/>
 
 
-
 ## Step4: 関数にして便利にしましょう。
 
 石を表示するプログラムを関数にしましょう。
@@ -1452,6 +1451,8 @@ stone = 15
 
 for i in range(15):
     print('〇', end='') 
+    print('')
+
 
 getStone = int(input('石を何個取りますか？（最大２個）'))
 
@@ -1459,6 +1460,8 @@ stone = stone - getStone
 
 for i in range(stone):
     print('〇', end='') 
+    print('')
+
 ```
 
 <br/>
@@ -1488,6 +1491,8 @@ printStone(stone)
 def printStone(num):
     for i in range(num):
         print('〇', end='') 
+    print('')
+
 
 ここに処理を追加   
     getStone = int(input('石を何個取りますか？（最大２個）'))
@@ -1511,15 +1516,16 @@ def printStone(num):
 ③石を表示しましょう・
 
 ```python
+def printStone(num):
+    for i in range(num):
+        print('〇', end='') 
+    print('')
+
+
 player= input('ユーザー名を入力してください。：')
 stone = 15
 
 printStone(stone)
-
-def printStone(num):
-    for i in range(num):
-        print('〇', end='') 
-
 
 while stone > 0:
     getStone = int(input('石を何個取りますか？（最大２個）'))
@@ -1544,14 +1550,15 @@ while stone > 0:
 ## Step7: stoneが0になった時にbreakしましょう。
 
 ```python
+def printStone(num):
+    for i in range(num):
+        print('〇', end='') 
+    print('')
+
 player= input('ユーザー名を入力してください。：')
 stone = 15
 
 printStone(stone)
-
-def printStone(num):
-    for i in range(num):
-        print('〇', end='') 
 
 
 while stone > 0:
@@ -1569,14 +1576,17 @@ while stone > 0:
 ## Step8: 勝ち負けを表示しましょう。
 
 ```python
+def printStone(num):
+    for i in range(num):
+        print('〇', end='')
+    print('')
+
+
 player= input('ユーザー名を入力してください。：')
 stone = 15
 
 printStone(stone)
 
-def printStone(num):
-    for i in range(num):
-        print('〇', end='') 
 
 while stone > 0:
     getStone = int(input('石を何個取りますか？（最大２個）'))
@@ -1591,6 +1601,39 @@ while stone > 0:
     printStone(stone)
     if stone <= 0:
         ここに処理を追加
+        break
+```
+
+
+## Step8: コンピュータに戦略を持たせましょう。
+
+今回は、ユーザーが１個取ったら、2個。
+２個取ったら、１個取るようにする。
+
+```python
+def printStone(num):
+    for i in range(num):
+        print('〇', end='')
+    print('')
+
+player= input('ユーザー名を入力してください。：')
+stone = 15
+
+printStone(stone)
+
+while stone > 0:
+    getStone = int(input('石を何個取りますか？（最大２個）'))
+    stone = stone - getStone
+    printStone(stone)
+    if stone <= 0:
+        print('あなたの負け')
+        break
+
+    stone = stone - ここに処理を追加
+    print('ここに処理を追加')
+    printStone(stone)
+    if stone <= 0:
+        print('あなたの勝ち')
         break
 ```
 
