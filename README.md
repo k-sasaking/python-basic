@@ -1415,6 +1415,7 @@ stone = 15
 
 for i in range(15):
     print('〇', end='') 
+print('')
 
 ここに処理①を追加
 
@@ -1441,8 +1442,6 @@ for i in range(15):
 関数名がprintStone
 引数をnumにして、表示するプログラムを作りましょう。
 
-### 1ポイント
-int(input('メッセージ：'))
 
 
 ```python
@@ -1451,7 +1450,7 @@ stone = 15
 
 for i in range(15):
     print('〇', end='') 
-    print('')
+print('')
 
 
 getStone = int(input('石を何個取りますか？（最大２個）'))
@@ -1460,7 +1459,7 @@ stone = stone - getStone
 
 for i in range(stone):
     print('〇', end='') 
-    print('')
+print('')
 
 ```
 
