@@ -647,7 +647,6 @@ print(type(num))
     b = 100
 
     </pre>
-
    </p>
 </div>
 
@@ -863,8 +862,14 @@ print(s)
 <br/>
 <br/>
 
-演習：
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    「あなたの名前を入力してください。：」と入力するように促しましょう。(lesson5.pyを編集)
+    また、入力された名前に対して、「〇〇さん、ありがとうございます。」と出力しましょう。
+    </p>
 
+</div>
 
 <hr/>
 <br/>
@@ -882,7 +887,7 @@ lesson6.pyを作りましょう。
 <br/>
 
 
-例えば、テストの点数が、100点の時は、「満点」と表示したい時は？
+例えば、テストの点数が、100点の時は、「満点」と表示したい時は？(lesson6.pyにコピーして実行してみよう！)
 
 
 ```python
@@ -895,8 +900,8 @@ if test == 100:
 
 <br/>
 <br/>
-dfss
-このように、　== は左と右が同じという意味になります。
+
+このように、　「==」 は左と右が同じという意味になります。
 
 
 これを**比較演算子**と呼びます。
@@ -907,18 +912,64 @@ dfss
 
 その他の比較演算子は以下のようなものがあります。
 
-|||
 
+| 記号 | 使用例 | 意味 |
+| == | A == B | AとBは、等しい  | 
+| > | A > B | Aは、Bより大きい  | 
+| >= | A >= B | Aは、B以上  | 
+| < | A < B | Aは、Bより小さい(未満)  | 
+| <= | A <= B | Aは、B以下  | 
+| != | A != B | AとBは、等しくない  | 
 
 
 
 <br/>
 <br/>
 <br/>
+
+
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    次のif文の「条件式」が、（１）から（３）の時に、成り立つ場合は、「True」。成り立たない場合は、「False」を選びなさい。
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
+    (1)
+    a = 70
+    
+    if a > 50: 
+        print('True')
+    </pre>
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
+    (2)
+    b = 50
+    if b > 50:
+        print('True')
+    </pre>
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
+    (3)
+    c = 30
+    if c > 50:
+        print('True')
+    </pre>
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
+    (4)
+    d = 50
+    if d != 50:
+        print('True')
+    </pre>
+   </p>
+   <div class="enshu-a">
+       <p class="enshu-a-title">回答</p>
+        (1):<input type="text" size="3" /><br/>
+        (2):<input type="text" size="3" /><br/>
+        (3):^.<input type="text" size="3" /><br/>
+        (4):<input type="text" size="3" /><br/>
+   </div>
+</div>
 
 
 ## else文
-続いて、テストの点数が、70点以上は「合格」。70点未満は「不合格」と表示したい時は？
+続いて、テストの点数が、70点以上は「True」。70点未満は「False」と表示したい時は？(lesson6.pyにコピーして実行してみよう！)
 
 
 ```python
@@ -926,9 +977,9 @@ test = 70
 
 
 if test >= 70:
-    print('合格')
+    print('True')
 else:
-    print('不合格')
+    print('False')
 ```
 
 
@@ -938,7 +989,7 @@ else:
 
 
 ## elif文
-最後に、80点以上は「A」、60点以上は、「B」、それ以外は、「C」と表示したい時は？
+最後に、80点以上は「A」、60点以上は、「B」、それ以外は、「C」と表示したい時は？(lesson6.pyにコピーして実行してみよう！)
 
 
 ```python
@@ -954,10 +1005,50 @@ else:
 ```
 
 
+<br/>
+<br/>
+<br/>
+
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    lesson6.pyのプログラムを編集して、以下のようなプログラムを作成しましょう。
+    timeが10より小さい場合は、「おはよう」と出力。
+    timeが17より小さい場合は、「こんにちは」と出力。
+    それ以外の場合は、「こんばんは」と出力。
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
+    time = 15
+
+    if ここに条件を記載:
+        print(ここに処理を記載)
+    elif ここに条件を記載:
+        print(ここに処理を記載)
+    else:
+        print(ここに処理を記載)
+    </pre>
+    </p>
+</div>
 
 
-演習：
+<div class="enshu">
+    <p class="enshu-title-next">時間余った人演習：</p>
+    <p class="enshu-q">
+    以下のような条件の処理をするように、lesson6.pyを書き換えましょう。
+    dayの値を7で割った余りが0の場合は、「日曜日」
+    dayの値を7で割った余りが1の場合は、「月曜日」
+    dayの値を7で割った余りが2の場合は、「火曜日」
+    dayの値を7で割った余りが3の場合は、「水曜日」
+    dayの値を7で割った余りが4の場合は、「木曜日」
+    dayの値を7で割った余りが5の場合は、「金曜日」
+    dayの値を7で割った余りが6の場合は、「土曜日」
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
+    day = 15
 
+    ここにif文の処理を書いてください。
+
+    </pre>
+    </p>
+</div>
 
 
 <hr/>
@@ -972,18 +1063,22 @@ lesson7.pyを作りましょう。
 
 ## for文の書き方１
 
-
-例えば、"●"を5個表示したい時は？
+例えば、0から9までの数字を表示したい時は？
 
 <br/>
 
 
 ```python
-print('●')
-print('●')
-print('●')
-print('●')
-print('●')
+print(0)
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+print(6)
+print(7)
+print(8)
+print(9)
 ```
 
 <br/>
@@ -999,12 +1094,12 @@ print('●')
 
 同じ処理をする場合は、何回その処理をやるのか書くだけで、繰り返し処理をしてくれます。
 
-lesson
+lesson7.pyへ下のプログラムをコピーして実行してみよう。
 
 
 ```python
-for i in range(i):
-    print('●')
+for i in range(10):
+    print(i)
 ```
 
 
@@ -1012,10 +1107,27 @@ for i in range(i):
 <br/>
 
 
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    lesson7.pyのfor文を使って、0から30まで出力しましょう。
+    </p>
+</div>
 
+<div class="enshu">
+    <p class="enshu-title-next">早く終わった人の演習：</p>
+    <p class="enshu-q">
+    lesson7.pyのfor文を使って、0から30まで出力しましょう。
+    また、その時に、3の倍数のみを表示するようにしてください。
+    </p>
+</div>
 
-演習：
-
+<div class="enshu">
+    <p class="enshu-title-next">早く終わった人の演習：</p>
+    <p class="enshu-q">
+    lesson7.pyのfor文を使って、30から0まで出力しましょう。
+    </p>
+</div>
 
 
 <hr/>
@@ -1024,40 +1136,39 @@ for i in range(i):
 
 
 # Lesson8 関数
-### 
+lesson8.pyを作成しましょう。
 
+<br/>
 
-例えば、下記の処理を何回かやりたい時があります。
+## 関数の作り方
 
+関数は、同じ処理を何回も使いたい時に、処理をまとめておくことで便利に使えます。
+
+例えば、じゃんけんをするプログラムを書くときに、下記のような処理を出力します。
 
 ```python
-a = a + b
-print('a')
+print('じゃんけん')
+print('ぽい')
 ```
 
 
-その時に、
+その時に、例えば３回勝負るすと...
 
 
 ```python
-a = a + b
-print('a')
+print('じゃんけん')
+print('ぽい')
+
+print('じゃんけん')
+print('ぽい')
 
 
-a = a + b
-print('a')
-
-
-a = a + b
-print('a')
-
-
-a = a + b
-print('a')
+print('じゃんけん')
+print('ぽい')
 ```
 
+のように、なるのはちょっと不便ですよね。
 
-と書くのは少し不便です。
 
 
 そんな時に、役立つのが、関数です。
@@ -1065,30 +1176,38 @@ print('a')
 
 関数は、処理を一つにまとめてくれるとても便利なものです。
 
-
+以下のない表をlesson8.pyにコピーしましょう。
 
 
 ```python
+def janken():
+    print('じゃんけん')
+    print('ぽい')
 
-
-def a(
-        
-):
-    print('関数が呼ばれました')
-
-
-a()
-a()
-a()
+janken()
+janken()
+janken()
 ```
 
 
+<br/>
+<br/>
+
+## 引数
+
+引数とは、関数に変数を渡すことができる便利なものです。
+
+以下のない表をlesson8.pyの下に追記しましょう。
 
 
+```python
+def ohayo(name):
+    print(name + 'さん、おはよう。')
 
-
-演習：
-
+ohayo('田中')
+ohayo('中山')
+ohayo('山田')
+```
 
 
 <hr/>
@@ -1096,9 +1215,141 @@ a()
 <br/>
 
 
-# Lesson9 ゲームを作ってみよう！
-### 
+## 戻り値
 
+戻り値とは、関数が呼び出された後に、結果を返すことができます。
+
+以下のない表をlesson8.pyの下に追記しましょう。
+
+
+```python
+def bai(num):
+    return num * 2
+
+a = 5
+b = 1000
+
+print(bai(a))
+print(bai(b))
+```
+
+
+<div class="enshu">
+    <p class="enshu-title">演習：</p>
+    <p class="enshu-q">
+    lesson8.pyの下に以下の処理を追記しましょう。
+    (1)関数名がhelloという関数：
+      「おはよう」と出力をする処理を書く。
+    (2)関数名がthankという関数：
+       引数nameを持ち、戻り値「nameさん、ありがとう」を返す。
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
+    # ここに関数（１）の処理を書く。
+
+    # ここに関数（２）の処理を書く。
+
+    hello()
+    hello()
+    hello()
+
+    print(thank('Tom'))
+    print(thank('Cathy'))
+
+    </pre>
+    </p>
+</div>
+
+
+<div class="enshu">
+    <p class="enshu-title-next">早く終わった人の演習：</p>
+    <p class="enshu-q">
+    lesson8.pyの下に以下の処理を追記しましょう。
+    (1)関数名がaddという関数：引数を二つ持ち、戻り値に引数の足し算した結果を返す。
+    (2)関数名がmulという関数：引数を二つ持ち、戻り値に引数の掛け算した結果を返す。
+    (3)関数名がequalという関数：引数を二つ持ち、二つ値が同じであればTrue,違う内容であればFalseを返す。
+
+    <pre style="background-color: #364549;color:#ffffff;margin: 5px;">
+    # ここに関数（１）の処理を書く。
+
+    # ここに関数（2）の処理を書く。
+
+    print(add(10,20))
+    print(mul(10,20))
+    print(equal(10,20))
+    print(equal(10,10))
+
+    </pre>
+    </p>
+</div>
+
+
+
+# Lesson9 ゲームを作ってみよう！
+
+lesson9.pyを作りましょう。
+
+
+それでは、ここから実践です。
+
+一番最初に紹介した石取りゲームを作ってみましょう。
+
+
+### ルール
+
+１５個の石を順番に取っていきます。取ることのできる石の数は、「１個」か「２個」しか選べません。
+
+最後の一個を取ったら、負けです。**最後の一個を取らないようにする**ゲームです。
+
+
+
+
+## 段階を踏んで作っていきましょう。
+
+lesson9.pyを徐々に変えています。
+
+
+## Step1: ユーザー名を入力できるようにしましょう。
+
+「ユーザー名を入力してください。：」というメッセージを出して、入力を促します。
+入力された値を変数playerに入れましょう。
+
+```python
+player = ここに処理を追加
+```
+
+
+## Step2: 石を１５個並べましょう。
+
+石を15個表示しましょう。
+変数stoneを作り、15という数字を入れましょう。
+
+
+### 1ポイント
+print('あああ', end ='')
+
+```python
+player = input('ユーザー名を入力してください。：')
+
+ここに処理を追加
+```
+
+
+
+## Step3: ユーザーが1個、２個と石を取る処理を加えましょう。
+
+
+
+```python
+player= input('ユーザー名を入力してください。：')
+
+for i 
+```
+
+
+## Step4: 関数にして便利にしましょう。
+
+
+
+## Step5: コンピュータの処理を加えてみましょう。
 
 
 
